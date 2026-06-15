@@ -1,0 +1,17 @@
+node_modules/
+cypress/reports/
+cypress/screenshots/
+cypress/videos/
+.env.local
+.env.dev
+.env.qa
+.env.staging
+.env.uat
+.DS_Store
+*.log
+npm-debug.log*
+dist/
+build/
+.nyc_output/
+coverage/
+automation-framework/node_modules/

@@ -1,0 +1,70 @@
+{
+  "name": "tod-cypress-framework",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Enterprise Cypress automation framework for TOD (Talent On Demand) ATS",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:chrome": "cypress run --browser chrome",
+    "cy:run:firefox": "cypress run --browser firefox",
+    "cy:run:electron": "cypress run --browser electron",
+    "cy:run:webkit": "cypress run --browser webkit",
+    "cy:run:headless": "cypress run --headless",
+    "test:smoke": "cypress run --env tags=@smoke",
+    "test:smoke:chrome": "cypress run --env tags=@smoke --browser chrome",
+    "test:smoke:firefox": "cypress run --env tags=@smoke --browser firefox",
+    "test:smoke:electron": "cypress run --env tags=@smoke --browser electron",
+    "test:smoke:webkit": "cypress run --env tags=@smoke --browser webkit",
+    "test:sanity": "cypress run --env tags=@sanity",
+    "test:regression": "cypress run --env tags=@regression",
+    "test:regression:chrome": "cypress run --env tags=@regression --browser chrome",
+    "test:regression:firefox": "cypress run --env tags=@regression --browser firefox",
+    "test:regression:electron": "cypress run --env tags=@regression --browser electron",
+    "test:regression:webkit": "cypress run --env tags=@regression --browser webkit",
+    "test:critical": "cypress run --env tags=@critical",
+    "test:cross-browser": "npm run test:smoke:chrome && npm run test:smoke:firefox && npm run test:smoke:electron && npm run test:smoke:webkit",
+    "test:dev": "cross-env TEST_ENV=dev cypress run",
+    "test:qa": "cross-env TEST_ENV=qa cypress run",
+    "test:staging": "cross-env TEST_ENV=staging cypress run",
+    "test:uat": "cross-env TEST_ENV=uat cypress run",
+    "test:local": "cross-env TEST_ENV=local cypress run",
+    "test:login": "cypress run --spec 'cypress/e2e/auth/**'",
+    "test:jobs": "cypress run --spec 'cypress/e2e/jobs/**'",
+    "test:candidates": "cypress run --spec 'cypress/e2e/candidates/**'",
+    "test:settings": "cypress run --spec 'cypress/e2e/settings/**'",
+    "report:merge": "npx mochawesome-merge cypress/reports/json/*.json -o cypress/reports/json/merged.json",
+    "report:generate": "npx marge cypress/reports/json/merged.json -f report -o cypress/reports/html",
+    "report:full": "npm run report:merge && npm run report:generate",
+    "lint": "eslint 'cypress/**/*.js' --max-warnings=0",
+    "lint:fix": "eslint 'cypress/**/*.js' --fix",
+    "format": "prettier --write '**/*.{js,json,md,yml}'",
+    "format:check": "prettier --check '**/*.{js,json,md,yml}'",
+    "prepare": "husky install || true"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "cypress": "^15.17.0",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0"
+  },
+  "devDependencies": {
+    "@cypress/grep": "^4.1.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
+    "eslint-plugin-cypress": "^3.5.0",
+    "husky": "^9.1.0",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.3.0"
+  },
+  "lint-staged": {
+    "*.js": ["eslint --fix", "prettier --write"],
+    "*.{json,md,yml}": ["prettier --write"]
+  }
+}

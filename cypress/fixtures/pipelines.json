@@ -1,0 +1,11 @@
+{
+  "valid": {
+    "name": "Standard Hiring Pipeline AUTO",
+    "description": "Default hiring pipeline for automation tests",
+    "stages": ["Applied", "Phone Screen", "Technical Interview", "Final Round", "Offer", "Hired"]
+  },
+  "minimal": {
+    "name": "Quick Pipeline AUTO"
+  },
+  "stages": ["Applied", "Screening", "Interview", "Offer", "Hired"]
+}

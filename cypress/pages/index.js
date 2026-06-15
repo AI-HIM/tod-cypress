@@ -1,0 +1,11 @@
+export { BasePage } from './BasePage';
+export { LoginPage } from './LoginPage';
+export { HomePage } from './HomePage';
+export { DashboardPage } from './DashboardPage';
+export { JobsPage } from './JobsPage';
+export { PipelinesPage } from './PipelinesPage';
+export { TemplatesPage } from './TemplatesPage';
+export { CandidatesPage } from './CandidatesPage';
+export { ImportsPage } from './ImportsPage';
+export { MergeRequestsPage } from './MergeRequestsPage';
+export { SettingsPage } from './SettingsPage';

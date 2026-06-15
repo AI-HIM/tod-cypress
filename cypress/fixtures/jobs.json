@@ -1,0 +1,15 @@
+{
+  "valid": {
+    "title": "Senior Automation Engineer AUTO",
+    "location": "Remote",
+    "description": "We are hiring a senior automation engineer for our growing team.",
+    "businessUnit": "Engineering_AUTO"
+  },
+  "minimal": {
+    "title": "Junior Dev AUTO"
+  },
+  "missingTitle": {
+    "location": "New York",
+    "description": "Missing title job"
+  }
+}

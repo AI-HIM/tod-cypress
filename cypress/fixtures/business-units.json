@@ -1,0 +1,17 @@
+{
+  "valid": {
+    "name": "Engineering_AUTO",
+    "description": "Engineering business unit for automation testing"
+  },
+  "minimal": {
+    "name": "MinimalBU_AUTO"
+  },
+  "longName": {
+    "name": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "description": "Testing maximum name length"
+  },
+  "specialChars": {
+    "name": "BU-Test & Co. (AUTO)",
+    "description": "Special chars in BU name test"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "valid": {
+    "firstName": "Alice",
+    "lastName": "TestCandidate",
+    "email": "alice.testcandidate@automation.com",
+    "phone": "9876543210",
+    "title": "Software Engineer",
+    "location": "Austin, Texas"
+  },
+  "duplicate": {
+    "firstName": "Alice",
+    "lastName": "TestCandidate",
+    "email": "alice.testcandidate@automation.com"
+  },
+  "missingEmail": {
+    "firstName": "Bob",
+    "lastName": "NoEmail",
+    "phone": "1234567890"
+  },
+  "specialChars": {
+    "firstName": "O'Brien",
+    "lastName": "Müller-Smith",
+    "email": "special.test+tag@automation.com",
+    "phone": "9999999999"
+  },
+  "longName": {
+    "firstName": "Averylongfirstnamethatmightexceedthelimitforfields",
+    "lastName": "Averylonglastnamethatmightexceedthelimitforfields",
+    "email": "longname@automation.com",
+    "phone": "5555555555"
+  }
+}

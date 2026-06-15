@@ -1,0 +1,14 @@
+{
+  "valid": {
+    "name": "Q1 Import AUTO",
+    "description": "Automation test import batch for Q1"
+  },
+  "minimal": {
+    "name": "Minimal Import AUTO"
+  },
+  "withFile": {
+    "name": "Resume Import AUTO",
+    "description": "Import batch with resume file",
+    "fixture": "files/sample-resume.pdf"
+  }
+}

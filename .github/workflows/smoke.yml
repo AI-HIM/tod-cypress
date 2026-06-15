@@ -1,0 +1,79 @@
+name: Smoke Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options: [dev, qa, staging, uat]
+      browser:
+        description: 'Browser to run smoke tests on'
+        required: false
+        default: 'chrome'
+        type: choice
+        options: [chrome, firefox, electron, webkit]
+  push:
+    branches: [main, develop]
+
+jobs:
+  smoke:
+    name: Smoke Tests - ${{ github.event.inputs.browser || 'chrome' }} - ${{ github.event.inputs.environment || 'dev' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run smoke tests
+        uses: cypress-io/github-action@v6
+        with:
+          browser: ${{ github.event.inputs.browser || 'chrome' }}
+          headed: false
+          env: tags=@smoke
+        env:
+          CYPRESS_USER_EMAIL: ${{ secrets.CYPRESS_USER_EMAIL }}
+          CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
+          TEST_ENV: ${{ github.event.inputs.environment || 'dev' }}
+
+      - name: Merge Mochawesome reports
+        if: always()
+        run: |
+          npx mochawesome-merge cypress/reports/json/*.json -o cypress/reports/json/merged.json
+          npx marge cypress/reports/json/merged.json -f smoke-report -o cypress/reports/html
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-test-report-${{ github.event.inputs.browser || 'chrome' }}
+          path: cypress/reports
+          retention-days: 14
+
+      - name: Upload screenshots on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-screenshots-${{ github.event.inputs.browser || 'chrome' }}
+          path: cypress/reports/screenshots
+          retention-days: 7
+
+      - name: Upload videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-videos-${{ github.event.inputs.browser || 'chrome' }}
+          path: cypress/reports/videos
+          retention-days: 7

@@ -1,0 +1,122 @@
+name: Nightly Full Suite
+
+on:
+  schedule:
+    - cron: '0 1 * * *'  # 1:00 AM UTC daily
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        required: true
+        default: 'qa'
+        type: choice
+        options: [dev, qa, staging, uat]
+      browser:
+        description: 'Browser (leave blank for all)'
+        required: false
+        default: 'all'
+        type: choice
+        options: [all, chrome, firefox, electron, webkit]
+
+jobs:
+  nightly-full:
+    name: Nightly - ${{ matrix.browser }} - ${{ github.event.inputs.environment || 'qa' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: ${{ fromJson(github.event.inputs.browser == 'all' || github.event.inputs.browser == '' && '["chrome","firefox","electron","webkit"]' || format('["{0}"]', github.event.inputs.browser || 'chrome')) }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run full test suite
+        uses: cypress-io/github-action@v6
+        with:
+          browser: ${{ matrix.browser }}
+          headed: false
+        env:
+          CYPRESS_USER_EMAIL: ${{ secrets.CYPRESS_USER_EMAIL }}
+          CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}
+          TEST_ENV: ${{ github.event.inputs.environment || 'qa' }}
+
+      - name: Merge Mochawesome reports
+        if: always()
+        run: |
+          ls cypress/reports/json/ || true
+          npx mochawesome-merge "cypress/reports/json/*.json" -o cypress/reports/json/merged.json || true
+          npx marge cypress/reports/json/merged.json -f nightly-report-${{ matrix.browser }} -o cypress/reports/html || true
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightly-html-report-${{ matrix.browser }}
+          path: cypress/reports/html
+          retention-days: 30
+
+      - name: Upload screenshots on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightly-screenshots-${{ matrix.browser }}
+          path: cypress/reports/screenshots
+          retention-days: 14
+
+      - name: Upload videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightly-videos-${{ matrix.browser }}
+          path: cypress/reports/videos
+          retention-days: 14
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "Nightly tests FAILED on ${{ github.event.inputs.environment || 'qa' }} — browser: ${{ matrix.browser }}"
+          echo "Check artifacts for screenshots and report"
+
+  merge-nightly-reports:
+    name: Merge Nightly Reports
+    runs-on: ubuntu-latest
+    needs: nightly-full
+    if: always()
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download all nightly report artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: nightly-html-report-*
+          path: cypress/reports/html
+          merge-multiple: true
+
+      - name: Upload consolidated nightly report
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightly-consolidated-report
+          path: cypress/reports/html
+          retention-days: 30

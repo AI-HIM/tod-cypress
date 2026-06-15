@@ -1,0 +1,16 @@
+{
+  "valid": {
+    "name": "Interview Invite AUTO",
+    "subject": "You are invited for an interview",
+    "description": "Standard interview invitation email template",
+    "body": "Dear {{candidate_name}}, We are pleased to invite you for an interview on {{date}}."
+  },
+  "minimal": {
+    "name": "Minimal Template AUTO",
+    "subject": "Test Subject"
+  },
+  "folder": {
+    "name": "Automation Folder AUTO",
+    "description": "Folder created by automation tests"
+  }
+}
