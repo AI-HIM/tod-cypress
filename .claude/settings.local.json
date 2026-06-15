@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /Users/harry/Desktop/TOD_Cypress/automation-framework && echo \"===FULL TREE===\" && find . -type f -not -path './node_modules/*' -not -path './.git/*' | sort && echo \"\" && echo \"===BROWSERS INSTALLED?===\" && ls ~/Library/Caches/ms-playwright 2>/dev/null || echo \"no browsers cached\" && echo \"\" && echo \"===node_modules present?===\" && ls node_modules >/dev/null 2>&1 && echo \"yes node_modules\" || echo \"NO node_modules\")",
+      "Read(//Users/harry/Library/Caches/ms-playwright/**)",
+      "Bash(npm install *)",
+      "Bash(node scripts/explore.js)",
+      "Bash(node scripts/explore-nav.js)",
+      "Bash(node -e ' *)",
+      "Bash(cat)",
+      "Bash(chmod +x .husky/pre-commit)",
+      "Bash(node scripts/probe.js)",
+      "Bash(npm run *)",
+      "Bash(TEST_ENV=dev npx playwright test --project=chromium tests/auth/login.spec.ts:32 --reporter=list)",
+      "Bash(TEST_ENV=dev npx playwright test --project=chromium tests/auth/login.spec.ts:32)",
+      "Bash(npx cypress *)",
+      "Bash(node -e \"require\\('./cypress.config.js'\\); console.log\\('Config OK'\\)\")",
+      "Bash(git push *)"
+    ]
+  }
+}
