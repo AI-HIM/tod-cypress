@@ -10,6 +10,7 @@ export class LoginPage extends BasePage {
 
   waitUntilReady() {
     cy.get(S.emailInput).should('be.visible');
+    cy.get(S.passwordInput).should('be.visible');
     return this;
   }
 
@@ -23,8 +24,9 @@ export class LoginPage extends BasePage {
     return this;
   }
 
+  /** Click the Log in button. Matched by text so it works regardless of attrs. */
   submit() {
-    cy.get(S.submitButton).click();
+    cy.contains('button', /^log\s?in$/i).click();
     return this;
   }
 
@@ -35,18 +37,35 @@ export class LoginPage extends BasePage {
     return this;
   }
 
+  /**
+   * Assert the auth error is visible (shown for bad credentials).
+   * The TOD login form does NOT use role="alert"; it renders the message in a
+   * destructive-styled banner div with the exact text "Invalid email or password".
+   */
   assertErrorVisible() {
-    cy.get(S.errorMessage, { timeout: 8000 }).should('be.visible');
+    cy.contains(/invalid email or password/i, { timeout: 10000 }).should('be.visible');
     return this;
   }
 
   assertErrorContains(text) {
-    cy.get(S.errorMessage, { timeout: 8000 }).should('contain.text', text);
+    cy.contains(text, { timeout: 10000 }).should('be.visible');
     return this;
   }
 
+  /** Deterministically assert we did NOT navigate away from /login. */
   assertStillOnLoginPage() {
-    cy.url().should('include', '/login');
+    cy.location('pathname', { timeout: 10000 }).should('include', '/login');
+    return this;
+  }
+
+  /** Assert login succeeded — URL has left /login. */
+  assertLoggedIn() {
+    cy.location('pathname', { timeout: 15000 }).should('not.include', '/login');
+    return this;
+  }
+
+  assertPasswordMasked() {
+    cy.get(S.passwordInput).should('have.attr', 'type', 'password');
     return this;
   }
 }

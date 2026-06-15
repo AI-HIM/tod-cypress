@@ -1,0 +1,166 @@
+{
+  "url": "/settings/members",
+  "headings": [
+    "Members"
+  ],
+  "tableHeaders": [
+    "Member",
+    "Role",
+    "Reports To",
+    "Joined",
+    "Actions"
+  ],
+  "placeholders": [],
+  "dataSlots": [
+    "avatar",
+    "avatar-fallback",
+    "button",
+    "badge"
+  ],
+  "roles": [],
+  "stableIds": [
+    "_R_",
+    "microsoft-clarity"
+  ],
+  "buttons": [
+    {
+      "text": "",
+      "title": "Expand sidebar",
+      "type": "button"
+    },
+    {
+      "text": "S",
+      "id": "headlessui-menu-button-_R_f9iupfbb_",
+      "type": "button"
+    },
+    {
+      "text": "Invite Member",
+      "data-slot": "button"
+    },
+    {
+      "text": "",
+      "title": "Edit",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "title": "Remove",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "title": "Edit",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "title": "Remove",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "title": "Edit",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "title": "Remove",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "title": "Edit",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "title": "Remove",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "title": "Edit",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "title": "Remove",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "title": "Edit",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "title": "Remove",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "title": "Edit",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "title": "Remove",
+      "type": "button"
+    }
+  ],
+  "inputs": [],
+  "links": [
+    {
+      "href": "/settings",
+      "text": "Settings"
+    },
+    {
+      "href": "/settings/members",
+      "text": "Members"
+    },
+    {
+      "href": "/",
+      "text": "Back to App"
+    },
+    {
+      "href": "/settings/profile",
+      "text": "Profile"
+    },
+    {
+      "href": "/settings/preferences",
+      "text": "Preferences"
+    },
+    {
+      "href": "/settings/notifications",
+      "text": "Notifications"
+    },
+    {
+      "href": "/settings/api-keys",
+      "text": "API Keys"
+    },
+    {
+      "href": "/settings/buckets",
+      "text": "Buckets"
+    },
+    {
+      "href": "/settings/integrations",
+      "text": "Integrations"
+    },
+    {
+      "href": "/settings/voice",
+      "text": "Voice"
+    },
+    {
+      "href": "/settings/members",
+      "text": "Members"
+    },
+    {
+      "href": "/settings/org-chart",
+      "text": "Team Structure"
+    },
+    {
+      "href": "/settings/roles",
+      "text": "Roles"
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "url": "/pipelines",
+  "headings": [
+    "Pipelines"
+  ],
+  "tableHeaders": [],
+  "placeholders": [],
+  "dataSlots": [
+    "scroll-area",
+    "scroll-area-viewport",
+    "separator",
+    "dropdown-menu-trigger",
+    "avatar",
+    "avatar-fallback",
+    "button",
+    "badge"
+  ],
+  "roles": [
+    "none"
+  ],
+  "stableIds": [
+    "_R_",
+    "microsoft-clarity"
+  ],
+  "buttons": [
+    {
+      "text": "SD",
+      "id": "radix-_R_2t9iupfbb_",
+      "type": "button",
+      "data-slot": "dropdown-menu-trigger"
+    },
+    {
+      "text": "",
+      "title": "Expand sidebar",
+      "type": "button"
+    },
+    {
+      "text": "S",
+      "id": "headlessui-menu-button-_R_1taiupfbb_",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "title": "Delete pipeline",
+      "data-slot": "button"
+    },
+    {
+      "text": "",
+      "title": "Delete pipeline",
+      "data-slot": "button"
+    },
+    {
+      "text": "",
+      "title": "Delete pipeline",
+      "data-slot": "button"
+    },
+    {
+      "text": "",
+      "title": "Delete pipeline",
+      "data-slot": "button"
+    },
+    {
+      "text": "",
+      "title": "Delete pipeline",
+      "data-slot": "button"
+    },
+    {
+      "text": "",
+      "title": "Delete pipeline",
+      "data-slot": "button"
+    },
+    {
+      "text": "",
+      "title": "Delete pipeline",
+      "data-slot": "button"
+    }
+  ],
+  "inputs": [],
+  "links": [
+    {
+      "href": "/",
+      "text": ""
+    },
+    {
+      "href": "/dashboard",
+      "text": ""
+    },
+    {
+      "href": "/jobs",
+      "text": ""
+    },
+    {
+      "href": "/pipelines",
+      "text": ""
+    },
+    {
+      "href": "/templates",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/candidates",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/imports",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/merge-requests",
+      "text": ""
+    },
+    {
+      "href": "/docs",
+      "text": ""
+    },
+    {
+      "href": "/feedback",
+      "text": ""
+    },
+    {
+      "href": "/settings",
+      "text": ""
+    },
+    {
+      "href": "/pipelines",
+      "text": "Pipelines"
+    },
+    {
+      "href": "/pipelines/new",
+      "text": "New Pipeline",
+      "data-slot": "button"
+    },
+    {
+      "href": "/pipelines/019daa98-73f8-7ee3-bb4f-473dd14cf02d",
+      "text": "",
+      "aria-label": "Open BPO Hiring Pipeline"
+    },
+    {
+      "href": "/pipelines/019dcdda-1764-71d0-9c29-05931063afd7",
+      "text": "",
+      "aria-label": "Open CSE hiring pipeline"
+    },
+    {
+      "href": "/pipelines/019e2536-c6c3-73c3-925a-421837d9b4da",
+      "text": "",
+      "aria-label": "Open Default pipeline"
+    },
+    {
+      "href": "/pipelines/019dd441-996f-7292-9315-d9b23fee619d",
+      "text": "",
+      "aria-label": "Open Digitide Hiring Flow"
+    },
+    {
+      "href": "/pipelines/019e5e8c-eb60-7340-8283-f6ee8c48791d",
+      "text": "",
+      "aria-label": "Open Full Stack Developer"
+    },
+    {
+      "href": "/pipelines/019df2fa-315d-7d22-b9dc-e92c57035d69",
+      "text": "",
+      "aria-label": "Open test"
+    },
+    {
+      "href": "/pipelines/019dcebe-2513-7bc1-861f-0c0aec207282",
+      "text": "",
+      "aria-label": "Open Vibha solution"
+    }
+  ]
+}

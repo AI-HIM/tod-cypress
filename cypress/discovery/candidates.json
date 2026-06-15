@@ -1,0 +1,547 @@
+{
+  "url": "/talent-base/candidates",
+  "headings": [],
+  "tableHeaders": [
+    "Candidate Name",
+    "Email",
+    "Phone",
+    "Title",
+    "Location",
+    "Experience",
+    "Added"
+  ],
+  "placeholders": [
+    "Search"
+  ],
+  "dataSlots": [
+    "scroll-area",
+    "scroll-area-viewport",
+    "separator",
+    "dropdown-menu-trigger",
+    "avatar",
+    "avatar-fallback",
+    "popover-trigger",
+    "button"
+  ],
+  "roles": [
+    "none",
+    "button"
+  ],
+  "stableIds": [
+    "_R_",
+    "microsoft-clarity"
+  ],
+  "buttons": [
+    {
+      "text": "SD",
+      "id": "radix-_R_2t9iupfbb_",
+      "type": "button",
+      "data-slot": "dropdown-menu-trigger"
+    },
+    {
+      "text": "",
+      "title": "Expand sidebar",
+      "type": "button"
+    },
+    {
+      "text": "S",
+      "id": "headlessui-menu-button-_R_1taiupfbb_",
+      "type": "button"
+    },
+    {
+      "text": "+ Add Candidate",
+      "title": "Add a candidate",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "title": "Refresh",
+      "type": "button"
+    },
+    {
+      "text": "No filters",
+      "type": "button",
+      "data-slot": "popover-trigger"
+    },
+    {
+      "text": "Created Date",
+      "type": "button",
+      "data-slot": "popover-trigger"
+    },
+    {
+      "text": "AKAMIT KUMAR SAINIclusterdistracted@gmail.com+91 7903838926Business Analyst | Da"
+    },
+    {
+      "text": "PMPriya Mehtapriay@test.com—Priya has extensive experience in manual and automat"
+    },
+    {
+      "text": "RSRahul Sharmarahul@test.com—Rahul is a highly experienced QA engineer with expe"
+    },
+    {
+      "text": "AVAmit Vermaamit.verma@gmail.com9988776655Backend Developer @ WiproPune—4 days a"
+    },
+    {
+      "text": "PMPriya Mehtapriya.mehta@gmail.com9123456780QA Engineer @ InfosysHyderabad—4 day"
+    },
+    {
+      "text": "RSRahul Sharmarahul.sharma@gmail.com9876543210Software Engineer @ TCSBangalore—4"
+    },
+    {
+      "text": "SJSheik Javeedsheikjaveed2527@gmail.com+91-6303961960SDE 2 - Applied MLHyderabad"
+    },
+    {
+      "text": "BKBhagya Kovvurikovvuribhagya11@gmail.com9985532644—Kakinada—about 1 month ago"
+    },
+    {
+      "text": "MMaladhiNikhithanikithamaladhinikitha@gmail.com9014497349—Hyderabad—about 1 mont"
+    },
+    {
+      "text": "MSMagiri Sameekshamagirisameeksha@gmail.com9912295466—Nizamabad—about 1 month ag"
+    },
+    {
+      "text": "SCSrikanth Chekurichekuri.917@gmail.com8309147573—Hyderabad—about 1 month ago"
+    },
+    {
+      "text": "DRDarshanala Rojarojadarshanala2022@gmail.com7013219384—warangal—about 1 month a"
+    },
+    {
+      "text": "ZAZufeshan Ayesha Sultanzufeshanayeshasultan@gmail.com9182046730—Hyderabad—about"
+    },
+    {
+      "text": "GPGoute Pranathipranathia1508@gmail.com8919321783—HYD—about 1 month ago"
+    },
+    {
+      "text": "APAllenki Pavan Kalyanpavanallenki25@gmail.com9959337202—Hyderabad Uppal—about 1"
+    },
+    {
+      "text": "SSShehabaj Shekhshehabajshekh4@gmail.com7083785696—Hyderabad—about 1 month ago"
+    },
+    {
+      "text": "SASalah Abubakar Bawazeersalahabubakarbawazeer123@gmail.com8712846484—Balapur—ab"
+    },
+    {
+      "text": "RGRajendar Godugurajendargodugu49@gmail.com7569421982—Hyderabad—about 1 month ag"
+    },
+    {
+      "text": "PMPooja Midthapallemidthapallypooja@gmail.com7036870188—Hyderabad—about 1 month "
+    },
+    {
+      "text": "SShashipriyathamshashipriyathamgalipelli@gmail.com8555938420—Himayatnagar—about "
+    },
+    {
+      "text": "SFShaik furqhanfurqhanshaik5@gmail.com9550059697—Hyderabad—about 1 month ago"
+    },
+    {
+      "text": "DSDasari srinidhiashannadasari123@gmail.com9014347791—Adilabad telangana—about 1"
+    },
+    {
+      "text": "AAbhinayasriabhinayasriburra47@gmail.com8096284740—Beeramguda—about 1 month ago"
+    },
+    {
+      "text": "KSKashetti srinijasrinijak.2017@gmail.com7569796537—Hyderabad—about 1 month ago"
+    },
+    {
+      "text": "MSMohit subrahmanyammohitsubrahmanyam@gmail.com6300918499—Visakhapatnam—about 1 "
+    },
+    {
+      "text": "SDSai deepsrisaideep2004@gmail.com8341588017—Hyderabad—about 1 month ago"
+    },
+    {
+      "text": "KNKomata Naveen Kumarnaveenkumar.nk2314@gmail.com9398383269—Hyderabad—about 1 mo"
+    },
+    {
+      "text": "SPSounika Pedalapupedalapusounika@gmail.com8074968735—Hyderabad—about 1 month ag"
+    },
+    {
+      "text": "SNSaikumar Neelamneelam.saikumar619@gmail.com8985642400—hyderabad—about 1 month "
+    },
+    {
+      "text": "MSMyadhari Swathimswathi7330@gmail.com7330886873—Bollaram—about 1 month ago"
+    },
+    {
+      "text": "BVBattula Vasantha Kumarivasanthabathulaa@gmail.com8639662538—Hyderabad—about 1 "
+    },
+    {
+      "text": "VSVOSAWAR SHREYAshreyavosawar@gmail.com8125376795—HYD—about 1 month ago"
+    },
+    {
+      "text": "ABAbdul Basithabdulbasith2031@gmail.com8309809095—Ameerpet—about 1 month ago"
+    },
+    {
+      "text": "GRG Ranjith Kumargranjithkumar643@gmail.com9515513662—Peddapalli—about 1 month a"
+    },
+    {
+      "text": "PMPuchakayala madhupuchakayalamadhu2000@gmail.com7893444329—Tirupathi—about 1 mo"
+    },
+    {
+      "text": "MKMahesh Kumarrowdymahi95@gmail.com9398322793—Moosapet hyderabad—about 1 month a"
+    },
+    {
+      "text": "VCVIKAS CHENNAGANIvekasuchan1122@gmail.com6300502717—Dilsukhnagar Hyderabad—abou"
+    },
+    {
+      "text": "PSParitala Sureshrayapatiprakash86@gmail.com8328257070—Andhra Pradesh—about 1 mo"
+    },
+    {
+      "text": "BVBugga Vaishnavivaishnavibugga81@gmail.com9581263622—Hyderabad—about 1 month ag"
+    },
+    {
+      "text": "VVineelapatnevineela@gmail.com7013544645—Hyderabad—about 1 month ago"
+    },
+    {
+      "text": "RARashmitha Appalarashmitha.appala07@gmail.com8985611308—Gachibowli Hyderabad—ab"
+    },
+    {
+      "text": "MHMedisetti Hamsa vanimedisettihamsavani@gmail.com8143185632—Hyderabad manikonda"
+    },
+    {
+      "text": "CAChazed Anjalianjalichazed000@gmail.com6303606884—Uppal—about 1 month ago"
+    },
+    {
+      "text": "SRS R RISHITHAsrrishitha21@gmail.com8985909272—Hyderabad—about 1 month ago"
+    },
+    {
+      "text": "GVGaddam Varalakshmivaralakshmigaddam25@gmail.com8374590835—Hyderabad—about 1 mo"
+    },
+    {
+      "text": "SFSalva Fatimasalvafatima99@gmail.com9966054137—Hyderabad—about 1 month ago"
+    },
+    {
+      "text": "KVKodudula Vivekvivekkodudula@gmail.com9182927537—Eluru,pothunuru Andrapradesh—a"
+    },
+    {
+      "text": "SAShaik Ayeshashayari.132005@gmail.com9052454415—Borabanda Hyderabad—about 1 mon"
+    },
+    {
+      "text": "PP.Udaykiranpudaykiran1999@gmail.com7396088054—Adoni—about 1 month ago"
+    },
+    {
+      "text": "V.Vigneshwar .vvigneshwarv2509@gmail.com9345755811—Chennai—about 1 month ago"
+    },
+    {
+      "text": "",
+      "aria-label": "Previous page",
+      "data-slot": "button"
+    },
+    {
+      "text": "",
+      "aria-label": "Next page",
+      "data-slot": "button"
+    }
+  ],
+  "inputs": [
+    {
+      "tag": "input",
+      "placeholder": "Search",
+      "type": "text"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select AMIT KUMAR SAINI"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Priya Mehta"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Rahul Sharma"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Amit Verma"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Priya Mehta"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Rahul Sharma"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Sheik Javeed"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Bhagya Kovvuri"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select MaladhiNikhitha"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Magiri Sameeksha"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Srikanth Chekuri"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Darshanala Roja"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Zufeshan Ayesha Sultan"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Goute Pranathi"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Allenki Pavan Kalyan"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Shehabaj Shekh"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Salah Abubakar Bawazeer"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Rajendar Godugu"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Pooja Midthapalle"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Shashipriyatham"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Shaik furqhan"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Dasari srinidhi"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Abhinayasri"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Kashetti srinija"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Mohit subrahmanyam"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Sai deep"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Komata Naveen Kumar"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Sounika Pedalapu"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Saikumar Neelam"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Myadhari Swathi"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Battula Vasantha Kumari"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select VOSAWAR SHREYA"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Abdul Basith"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select G Ranjith Kumar"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Puchakayala madhu"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Mahesh Kumar"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select VIKAS CHENNAGANI"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Paritala Suresh"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Bugga Vaishnavi"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Vineela"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Rashmitha Appala"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Medisetti Hamsa vani"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Chazed Anjali"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select S R RISHITHA"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Gaddam Varalakshmi"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Salva Fatima"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Kodudula Vivek"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Shaik Ayesha"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select P.Udaykiran"
+    },
+    {
+      "tag": "input",
+      "type": "checkbox",
+      "aria-label": "Select Vigneshwar .v"
+    }
+  ],
+  "links": [
+    {
+      "href": "/",
+      "text": ""
+    },
+    {
+      "href": "/dashboard",
+      "text": ""
+    },
+    {
+      "href": "/jobs",
+      "text": ""
+    },
+    {
+      "href": "/pipelines",
+      "text": ""
+    },
+    {
+      "href": "/templates",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/candidates",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/imports",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/merge-requests",
+      "text": ""
+    },
+    {
+      "href": "/docs",
+      "text": ""
+    },
+    {
+      "href": "/feedback",
+      "text": ""
+    },
+    {
+      "href": "/settings",
+      "text": ""
+    },
+    {
+      "href": "/talent-base",
+      "text": "Talent Base"
+    },
+    {
+      "href": "/talent-base/candidates",
+      "text": "All Candidates"
+    }
+  ]
+}

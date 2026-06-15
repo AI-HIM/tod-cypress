@@ -1,0 +1,122 @@
+{
+  "url": "/",
+  "headings": [
+    "Hey Sowmya, what's up?"
+  ],
+  "tableHeaders": [],
+  "placeholders": [],
+  "dataSlots": [
+    "scroll-area",
+    "scroll-area-viewport",
+    "separator",
+    "dropdown-menu-trigger",
+    "avatar",
+    "avatar-fallback",
+    "popover-trigger"
+  ],
+  "roles": [
+    "none"
+  ],
+  "stableIds": [
+    "_R_",
+    "microsoft-clarity"
+  ],
+  "buttons": [
+    {
+      "text": "SD",
+      "id": "radix-_R_2t9iupfbb_",
+      "type": "button",
+      "data-slot": "dropdown-menu-trigger"
+    },
+    {
+      "text": "",
+      "title": "Expand sidebar",
+      "type": "button"
+    },
+    {
+      "text": "S",
+      "id": "headlessui-menu-button-_R_1taiupfbb_",
+      "type": "button"
+    },
+    {
+      "text": "Draft a JD for a Staff iOS engineer",
+      "type": "button"
+    },
+    {
+      "text": "Update the Growth PM rubric",
+      "type": "button"
+    },
+    {
+      "text": "Compare our JD with competitors",
+      "type": "button"
+    },
+    {
+      "text": "Draft an offer for Sofia — match N26 + 15%",
+      "type": "button"
+    },
+    {
+      "text": "Write a rejection email for the iOS batch",
+      "type": "button"
+    },
+    {
+      "text": "Create screening questions for ML roles",
+      "type": "button"
+    }
+  ],
+  "inputs": [
+    {
+      "tag": "input",
+      "type": "file"
+    }
+  ],
+  "links": [
+    {
+      "href": "/",
+      "text": ""
+    },
+    {
+      "href": "/dashboard",
+      "text": ""
+    },
+    {
+      "href": "/jobs",
+      "text": ""
+    },
+    {
+      "href": "/pipelines",
+      "text": ""
+    },
+    {
+      "href": "/templates",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/candidates",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/imports",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/merge-requests",
+      "text": ""
+    },
+    {
+      "href": "/docs",
+      "text": ""
+    },
+    {
+      "href": "/feedback",
+      "text": ""
+    },
+    {
+      "href": "/settings",
+      "text": ""
+    },
+    {
+      "href": "/",
+      "text": "Home"
+    }
+  ]
+}

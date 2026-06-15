@@ -1,0 +1,390 @@
+{
+  "url": "/talent-base/imports",
+  "headings": [],
+  "tableHeaders": [
+    "Name",
+    "Type",
+    "Progress",
+    "Created",
+    "Status",
+    "Creator"
+  ],
+  "placeholders": [
+    "Search"
+  ],
+  "dataSlots": [
+    "scroll-area",
+    "scroll-area-viewport",
+    "separator",
+    "dropdown-menu-trigger",
+    "avatar",
+    "avatar-fallback",
+    "popover-trigger",
+    "progress",
+    "progress-indicator",
+    "hover-card-trigger"
+  ],
+  "roles": [
+    "none",
+    "button",
+    "progressbar"
+  ],
+  "stableIds": [
+    "_R_",
+    "microsoft-clarity"
+  ],
+  "buttons": [
+    {
+      "text": "SD",
+      "id": "radix-_R_2t9iupfbb_",
+      "type": "button",
+      "data-slot": "dropdown-menu-trigger"
+    },
+    {
+      "text": "",
+      "title": "Expand sidebar",
+      "type": "button"
+    },
+    {
+      "text": "S",
+      "id": "headlessui-menu-button-_R_1taiupfbb_",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "title": "Refresh",
+      "type": "button"
+    },
+    {
+      "text": "No filters",
+      "type": "button",
+      "data-slot": "popover-trigger"
+    },
+    {
+      "text": "Created Date",
+      "type": "button",
+      "data-slot": "popover-trigger"
+    },
+    {
+      "text": "New Import",
+      "title": "New Import",
+      "type": "button"
+    },
+    {
+      "text": "Public apply — hari031@gmail.comResume1/1about 8 hours agoCompleted—"
+    },
+    {
+      "text": "QA_Test_Import_15Resume0/14 days agoDraftSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "QA_Test_Import_14Resume1/14 days agoCompletedSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "QA_Test_Import_13Resume0/14 days agoDraftSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "QA_Test_Import_12Resume—4 days agoDraftSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "QA_Test_Import_11Resume0/14 days agoFailedSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "QA_Test_Import_9Resume1/14 days agoCompletedSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "QA_Test_Import_8Resume1/14 days agoCompletedSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "QA_Test_Import_7Resume0/14 days agoDraftSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "QA_Test_Import_6Resume0/14 days agoCompletedSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "QA_Test_Import_5Resume1/14 days agoCompletedSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "QA_Test_Import_4Resume1/14 days agoCompletedSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "QA_Test_Import_3Resume1/14 days agoCompletedSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "QA_Test_Import_2Resume0/14 days agoCompletedSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "QA_Test_Import_1Resume1/14 days agoCompletedSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "Public apply — sowmyasagar.k@gmail.comResume1/15 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyasagar.k@gmail.comResume1/15 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyasagar.k@gmail.comResume1/15 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyasagar.k@gmail.comResume1/15 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyasagar.k@gmail.comResume1/16 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyasagar.k@gmail.comResume1/16 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyasagar.k@gmail.comResume1/16 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyasagar.k@gmail.comResume1/16 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyasagar.k@gmail.comResume1/16 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyasagar.k@gmail.comResume1/16 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyasagar.k@gmail.comResume1/17 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyasagar.k@gmail.comResume1/17 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyadeepika.g@gmail.comResume1/17 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyadeepika.g@gmail.comResume1/17 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyasagar.k@gmail.comResume1/17 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyasagar.k@gmail.comResume1/17 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyasagar.k@gmail.comResume1/17 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyasagar.k@gmail.comResume1/17 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyasagar.k@gmail.comResume1/111 days agoCompleted—"
+    },
+    {
+      "text": "Public apply — sowmyasagar.k@gmail.comResume1/111 days agoCompleted—"
+    },
+    {
+      "text": "CSEResume1/1about 1 month agoCompletedSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "BPOResume1/1about 1 month agoCompletedSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "vibha solResume0/1about 2 months agoCompletedSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "ML v2Resume1/1about 2 months agoCompletedSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "Software Quality AnalystResume1/42 months agoNeeds ReviewSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "MLResume—2 months agoDraftSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "Profiles for Prompt EngineersResume8/103 months agoCompletedSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "Prompt EngineersResume0/103 months agoFailedSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "Prompt EngineersResume0/103 months agoFailedSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    },
+    {
+      "text": "Prompt EngineersResume0/103 months agoFailedSDSowmya"
+    },
+    {
+      "text": "SDSowmya",
+      "type": "button",
+      "data-slot": "hover-card-trigger"
+    }
+  ],
+  "inputs": [
+    {
+      "tag": "input",
+      "placeholder": "Search",
+      "type": "text"
+    }
+  ],
+  "links": [
+    {
+      "href": "/",
+      "text": ""
+    },
+    {
+      "href": "/dashboard",
+      "text": ""
+    },
+    {
+      "href": "/jobs",
+      "text": ""
+    },
+    {
+      "href": "/pipelines",
+      "text": ""
+    },
+    {
+      "href": "/templates",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/candidates",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/imports",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/merge-requests",
+      "text": ""
+    },
+    {
+      "href": "/docs",
+      "text": ""
+    },
+    {
+      "href": "/feedback",
+      "text": ""
+    },
+    {
+      "href": "/settings",
+      "text": ""
+    },
+    {
+      "href": "/talent-base",
+      "text": "Talent Base"
+    },
+    {
+      "href": "/talent-base/imports",
+      "text": "Import Candidates"
+    }
+  ]
+}

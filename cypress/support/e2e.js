@@ -3,7 +3,10 @@ import 'cypress-mochawesome-reporter/register';
 import '@cypress/grep';
 
 Cypress.on('uncaught:exception', (err) => {
-  // SPA-level errors that are not test failures
+  // Next.js throws NEXT_REDIRECT internally for server-side redirects — not an app error.
+  if (err.message.includes('NEXT_REDIRECT')) return false;
+
+  // Other SPA-level noise that is not a test failure
   if (
     err.message.includes('ResizeObserver') ||
     err.message.includes('ChunkLoadError') ||

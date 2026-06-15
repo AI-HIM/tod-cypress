@@ -1,0 +1,121 @@
+{
+  "url": "/feedback",
+  "headings": [
+    "Open",
+    "Triaged",
+    "In Review",
+    "Completed"
+  ],
+  "tableHeaders": [],
+  "placeholders": [],
+  "dataSlots": [
+    "scroll-area",
+    "scroll-area-viewport",
+    "separator",
+    "dropdown-menu-trigger",
+    "avatar",
+    "avatar-fallback"
+  ],
+  "roles": [
+    "none"
+  ],
+  "stableIds": [
+    "_R_",
+    "microsoft-clarity"
+  ],
+  "buttons": [
+    {
+      "text": "SD",
+      "id": "radix-_R_2t9iupfbb_",
+      "type": "button",
+      "data-slot": "dropdown-menu-trigger"
+    },
+    {
+      "text": "",
+      "title": "Expand sidebar",
+      "type": "button"
+    },
+    {
+      "text": "S",
+      "id": "headlessui-menu-button-_R_1taiupfbb_",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "title": "Refresh",
+      "type": "button"
+    },
+    {
+      "text": "New Feedback",
+      "title": "New Feedback",
+      "type": "button"
+    },
+    {
+      "text": "All",
+      "type": "button"
+    },
+    {
+      "text": "Bugs",
+      "type": "button"
+    },
+    {
+      "text": "Feature Requests",
+      "type": "button"
+    },
+    {
+      "text": "FBK-1This is a testBugVendor oneApr 14",
+      "type": "button"
+    }
+  ],
+  "inputs": [],
+  "links": [
+    {
+      "href": "/",
+      "text": ""
+    },
+    {
+      "href": "/dashboard",
+      "text": ""
+    },
+    {
+      "href": "/jobs",
+      "text": ""
+    },
+    {
+      "href": "/pipelines",
+      "text": ""
+    },
+    {
+      "href": "/templates",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/candidates",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/imports",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/merge-requests",
+      "text": ""
+    },
+    {
+      "href": "/docs",
+      "text": ""
+    },
+    {
+      "href": "/feedback",
+      "text": ""
+    },
+    {
+      "href": "/settings",
+      "text": ""
+    },
+    {
+      "href": "/feedback",
+      "text": "Feedback"
+    }
+  ]
+}

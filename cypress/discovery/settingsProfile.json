@@ -1,0 +1,141 @@
+{
+  "url": "/settings/profile",
+  "headings": [
+    "Profile",
+    "Organization"
+  ],
+  "tableHeaders": [],
+  "placeholders": [
+    "Build the future at Acme",
+    "A short paragraph about what your team is building, who you're hiring for, and why someone should join."
+  ],
+  "dataSlots": [
+    "avatar",
+    "avatar-fallback",
+    "textarea"
+  ],
+  "roles": [
+    "img"
+  ],
+  "stableIds": [
+    "name-input",
+    "email-input",
+    "career-site-logo-input",
+    "career-site-tagline",
+    "career-site-about",
+    "_R_",
+    "microsoft-clarity"
+  ],
+  "buttons": [
+    {
+      "text": "",
+      "title": "Expand sidebar",
+      "type": "button"
+    },
+    {
+      "text": "S",
+      "id": "headlessui-menu-button-_R_f9iupfbb_",
+      "type": "button"
+    },
+    {
+      "text": "Upload photo",
+      "type": "button"
+    },
+    {
+      "text": "Remove",
+      "type": "button"
+    },
+    {
+      "text": "Upload logo",
+      "type": "button"
+    },
+    {
+      "text": "Save changes",
+      "title": "Edit a field to enable saving",
+      "type": "button"
+    }
+  ],
+  "inputs": [
+    {
+      "tag": "input",
+      "id": "name-input",
+      "type": "text"
+    },
+    {
+      "tag": "input",
+      "id": "email-input",
+      "type": "email"
+    },
+    {
+      "tag": "input",
+      "id": "career-site-logo-input",
+      "type": "file"
+    },
+    {
+      "tag": "input",
+      "id": "career-site-tagline",
+      "placeholder": "Build the future at Acme",
+      "type": "text"
+    },
+    {
+      "tag": "textarea",
+      "id": "career-site-about",
+      "placeholder": "A short paragraph about what your team is building, who you're hiring for, and why someone should join.",
+      "data-slot": "textarea"
+    }
+  ],
+  "links": [
+    {
+      "href": "/settings",
+      "text": "Settings"
+    },
+    {
+      "href": "/settings/profile",
+      "text": "Profile"
+    },
+    {
+      "href": "/",
+      "text": "Back to App"
+    },
+    {
+      "href": "/settings/profile",
+      "text": "Profile"
+    },
+    {
+      "href": "/settings/preferences",
+      "text": "Preferences"
+    },
+    {
+      "href": "/settings/notifications",
+      "text": "Notifications"
+    },
+    {
+      "href": "/settings/api-keys",
+      "text": "API Keys"
+    },
+    {
+      "href": "/settings/buckets",
+      "text": "Buckets"
+    },
+    {
+      "href": "/settings/integrations",
+      "text": "Integrations"
+    },
+    {
+      "href": "/settings/voice",
+      "text": "Voice"
+    },
+    {
+      "href": "/settings/members",
+      "text": "Members"
+    },
+    {
+      "href": "/settings/org-chart",
+      "text": "Team Structure"
+    },
+    {
+      "href": "/settings/roles",
+      "text": "Roles"
+    }
+  ]
+}

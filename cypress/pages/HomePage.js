@@ -1,5 +1,4 @@
 import { BasePage } from './BasePage';
-import { SELECTORS } from '../support/utils/helpers';
 
 export class HomePage extends BasePage {
   constructor() {
@@ -7,27 +6,28 @@ export class HomePage extends BasePage {
   }
 
   waitUntilReady() {
-    cy.url().should('not.include', '/login');
-    cy.get('body').should('be.visible');
+    cy.location('pathname', { timeout: 15000 }).should('eq', '/');
     return this;
   }
 
-  assertPageLoaded() {
-    cy.url().should('not.include', '/login');
-    cy.get('body').should('be.visible');
+  /** The home page is the AI assistant; assert it loaded by its greeting + a prompt suggestion. */
+  assertHomeLoaded() {
+    cy.location('pathname').should('eq', '/');
+    // Rotating greeting always addresses the signed-in user "Sowmya".
+    cy.contains('Sowmya', { timeout: 15000 }).should('be.visible');
     return this;
   }
 
-  assertSidebarVisible() {
-    cy.get('nav, aside').should('be.visible');
+  /** Assert at least one of the AI suggestion prompt buttons is present. */
+  assertSuggestionsVisible() {
+    cy.contains('button', /draft a jd/i, { timeout: 15000 }).should('be.visible');
     return this;
   }
 
-  navigateToJobs() {
-    return this.navigateTo(SELECTORS.sidebar.jobsLink.replace('a[href="', '').replace('"]', ''));
-  }
-
-  navigateToCandidates() {
-    return this.navigateTo('/talent-base/candidates');
+  /** Navigate to a destination by sidebar href and assert the pathname changed. */
+  navigateToHref(href) {
+    cy.navigateTo(href);
+    cy.location('pathname').should('include', href);
+    return this;
   }
 }

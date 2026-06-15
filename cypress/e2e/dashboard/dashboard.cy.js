@@ -1,43 +1,49 @@
 /**
  * @module Dashboard
- * @tags @smoke @regression
+ * The /dashboard analytics page. Asserts the greeting, every major section
+ * heading, and that recharts widgets render. No table exists on this page.
  */
+
+import { DashboardPage, DASHBOARD_SECTIONS } from '../../pages/DashboardPage';
+
+const dashboardPage = new DashboardPage();
 
 describe('Dashboard', { tags: ['@smoke', '@regression'] }, () => {
   beforeEach(() => {
     cy.login();
     cy.visit('/dashboard');
+    dashboardPage.waitUntilReady();
   });
 
-  context('Happy Path', () => {
-    it('@smoke - should load dashboard page', () => {
-      cy.url().should('include', '/dashboard');
-      cy.get('body').should('be.visible');
+  context('Happy Path', { tags: ['@smoke'] }, () => {
+    it('shows the personalized greeting', { tags: ['@critical'] }, () => {
+      dashboardPage.assertGreeting();
     });
 
-    it('@sanity - should display dashboard content', () => {
-      cy.get('body').should('not.be.empty');
+    DASHBOARD_SECTIONS.forEach((section) => {
+      it(`renders the "${section}" section`, { tags: ['@regression'] }, () => {
+        dashboardPage.assertSection(section);
+      });
     });
 
-    it('@regression - should render charts or metric widgets', () => {
-      cy.get('body').should('be.visible');
-      cy.get('canvas, svg, [class*="chart"], [class*="metric"], [class*="stat"]').should('exist');
-    });
-  });
-
-  context('Navigation', () => {
-    it('@regression - should navigate back to jobs from dashboard', () => {
-      cy.expandSidebar();
-      cy.get('a[href="/jobs"]').click();
-      cy.url().should('include', '/jobs');
+    it('renders recharts chart widgets', { tags: ['@regression'] }, () => {
+      dashboardPage.assertChartsRendered();
     });
   });
 
-  context('Unauthenticated', () => {
-    it('@critical - should redirect to login when not authenticated', () => {
+  context('Navigation', { tags: ['@regression'] }, () => {
+    it('navigates from the dashboard to Jobs', () => {
+      cy.navigateTo('/jobs');
+      cy.location('pathname').should('eq', '/jobs');
+    });
+  });
+
+  context('Unauthenticated Access', { tags: ['@critical', '@regression'] }, () => {
+    it('redirects an unauthenticated visit to /dashboard back to /login', () => {
       cy.clearCookies();
+      cy.clearLocalStorage();
       cy.visit('/dashboard');
-      cy.url().should('include', '/login');
+      cy.location('pathname', { timeout: 15000 }).should('include', '/login');
     });
   });
 });

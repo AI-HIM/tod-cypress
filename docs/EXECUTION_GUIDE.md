@@ -20,22 +20,22 @@ npm run cy:run
 npm run test:smoke
 
 # Sanity tests
-npx cypress run --env tags=@sanity
+npx cypress run --env grepTags=@sanity
 
 # Regression suite
-npx cypress run --env tags=@regression
+npx cypress run --env grepTags=@regression
 
 # Critical tests only
-npx cypress run --env tags=@critical
+npx cypress run --env grepTags=@critical
 
 # E2E workflow tests
-npx cypress run --env tags=@e2e
+npx cypress run --env grepTags=@e2e
 
 # Multiple tags (AND)
-npx cypress run --env "tags=@smoke+@critical"
+npx cypress run --env "grepTags=@smoke+@critical"
 
-# Multiple tags (OR)
-npx cypress run --env "tags=@smoke,@sanity"
+# Multiple tags (OR — space-separated)
+npx cypress run --env "grepTags=@smoke @sanity"
 ```
 
 ## Run by Environment

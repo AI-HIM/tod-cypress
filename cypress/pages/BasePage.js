@@ -60,8 +60,15 @@ export class BasePage {
   }
 
   logout() {
+    // Expand sidebar so the user button is reliably in the sidebar footer position.
+    cy.expandSidebar();
+    // The Radix dropdown trigger ([data-slot="dropdown-menu-trigger"]) is the last
+    // such element in the DOM — the sidebar user button is always below any inline
+    // content-area triggers that appear when the sidebar is expanded.
     cy.get(SELECTORS.sidebar.userMenuBtn).last().click();
-    cy.contains(SELECTORS.sidebar.signOutMenuItem, /sign out/i).click();
+    cy.contains(SELECTORS.sidebar.menuItem, /sign out/i, { timeout: 10000 })
+      .should('be.visible')
+      .click();
     cy.url().should('include', '/login');
     return this;
   }

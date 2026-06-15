@@ -1,0 +1,185 @@
+{
+  "url": "/talent-base/merge-requests/019eb63a-0b9b-7c02-aba8-c752d3249189",
+  "headings": [
+    "C_candidates.csv",
+    "Email (always kept from existing)",
+    "Profile Fields",
+    "Skills",
+    "Existing (2)",
+    "New Only (0)"
+  ],
+  "buttons": [
+    {
+      "text": "SD",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "dropdown-menu-trigger"
+    },
+    {
+      "text": "",
+      "title": "Expand sidebar",
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": null
+    },
+    {
+      "text": "S",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": null
+    },
+    {
+      "text": "",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": null
+    },
+    {
+      "text": "",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": null
+    },
+    {
+      "text": "",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "radio-group-item"
+    },
+    {
+      "text": "",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "radio-group-item"
+    },
+    {
+      "text": "",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "radio-group-item"
+    },
+    {
+      "text": "",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "radio-group-item"
+    },
+    {
+      "text": "",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "radio-group-item"
+    },
+    {
+      "text": "",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "radio-group-item"
+    },
+    {
+      "text": "",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "radio-group-item"
+    },
+    {
+      "text": "",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "radio-group-item"
+    },
+    {
+      "text": "",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "radio-group-item"
+    },
+    {
+      "text": "",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "radio-group-item"
+    },
+    {
+      "text": "",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "radio-group-item"
+    },
+    {
+      "text": "",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "radio-group-item"
+    },
+    {
+      "text": "",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "radio-group-item"
+    },
+    {
+      "text": "",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "radio-group-item"
+    },
+    {
+      "text": "",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "checkbox"
+    },
+    {
+      "text": "",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "checkbox"
+    },
+    {
+      "text": "Skip",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "button"
+    },
+    {
+      "text": "Merge",
+      "title": null,
+      "disabled": false,
+      "ariaLabel": null,
+      "dataSlot": "button"
+    }
+  ],
+  "links": [
+    {
+      "href": "/talent-base",
+      "text": "Talent Base"
+    },
+    {
+      "href": "/talent-base/merge-requests",
+      "text": "Merge-requests"
+    }
+  ],
+  "bodyTextSample": "T\nSD\nTalent Base\nMerge-requests\nC_candidates.csv\n\nExisting candidate: Priya Mehta (priya.mehta@gmail.com)\n\nPending\nEmail (always kept from existing)\npriya.mehta@gmail.com\nProfile Fields\n\nSelect which value to keep for each field\n\nName\n\nPriya Mehta\n\n=\nName\n\nPriya Mehta\n\nPhone\n\n9123456780\n\n=\nPhone\n\n9123456780\n\nLocation\n\nHyderabad\n\n=\nLocation\n\nHyderabad\n\nHeadline\n\nQA Engineer @ Infosys\n\n=\nHeadline\n\nQA Engineer @ Infosys\n\nAbout\n\n—\n\n=\nAbout\n\n—\n\nExperience (years)\n\n—\n\n=\nExperience (years)\n\n—\n\nSocial Links\n\n—\n\n=\nSocial Links\n\n—\n\nSkills\nEXISTING (2)\nSelenium\nTesting\nNEW ONLY (0)\n\nNone\n\nSkip\nMerge"
+}

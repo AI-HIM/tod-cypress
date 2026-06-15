@@ -1,0 +1,213 @@
+{
+  "url": "/templates/new",
+  "headings": [
+    "New Template"
+  ],
+  "inputs": [
+    {
+      "tag": "input",
+      "type": "text",
+      "id": "template-name",
+      "name": "",
+      "placeholder": "e.g., Offer Letter — Email",
+      "slot": "input",
+      "required": false,
+      "maxLength": -1,
+      "ariaLabel": null
+    },
+    {
+      "tag": "input",
+      "type": "text",
+      "id": "template-description",
+      "name": "",
+      "placeholder": "Briefly describe when this template is used...",
+      "slot": "input",
+      "required": false,
+      "maxLength": -1,
+      "ariaLabel": null
+    },
+    {
+      "tag": "input",
+      "type": "text",
+      "id": "template-subject",
+      "name": "",
+      "placeholder": "Email subject line...",
+      "slot": "input",
+      "required": false,
+      "maxLength": -1,
+      "ariaLabel": null
+    }
+  ],
+  "textareas": [
+    {
+      "tag": "textarea",
+      "id": "",
+      "name": "",
+      "placeholder": "Write your message template here. Use variables like {{candidate_name}} for personalization...",
+      "slot": "textarea"
+    }
+  ],
+  "selects": [],
+  "labels": [
+    {
+      "text": "Template Type",
+      "for": null
+    },
+    {
+      "text": "Simple Template",
+      "for": "mode-simple"
+    },
+    {
+      "text": "Add to Folder",
+      "for": "mode-folder"
+    },
+    {
+      "text": "Template Name",
+      "for": "template-name"
+    },
+    {
+      "text": "Description\n(optional)",
+      "for": "template-description"
+    },
+    {
+      "text": "Channel",
+      "for": null
+    },
+    {
+      "text": "Subject",
+      "for": "template-subject"
+    },
+    {
+      "text": "Message Body",
+      "for": null
+    }
+  ],
+  "buttons": [
+    {
+      "text": "SD",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": "dropdown-menu-trigger"
+    },
+    {
+      "text": "",
+      "type": "button",
+      "title": "Expand sidebar",
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "S",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "Save Template",
+      "type": "submit",
+      "title": null,
+      "disabled": false,
+      "slot": "button"
+    },
+    {
+      "text": "",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": "radio-group-item"
+    },
+    {
+      "text": "",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": "radio-group-item"
+    },
+    {
+      "text": "candidate_name",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": "tooltip-trigger"
+    },
+    {
+      "text": "first_name",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": "tooltip-trigger"
+    },
+    {
+      "text": "company_name",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": "tooltip-trigger"
+    },
+    {
+      "text": "job_title",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": "tooltip-trigger"
+    },
+    {
+      "text": "job_location",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": "tooltip-trigger"
+    },
+    {
+      "text": "salary_range",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": "tooltip-trigger"
+    },
+    {
+      "text": "interview_date",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": "tooltip-trigger"
+    },
+    {
+      "text": "interview_time",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": "tooltip-trigger"
+    },
+    {
+      "text": "office_address",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": "tooltip-trigger"
+    },
+    {
+      "text": "spoc_name",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": "tooltip-trigger"
+    },
+    {
+      "text": "spoc_phone",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": "tooltip-trigger"
+    }
+  ]
+}

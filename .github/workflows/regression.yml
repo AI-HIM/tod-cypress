@@ -49,7 +49,7 @@ jobs:
         with:
           browser: ${{ matrix.browser }}
           headed: false
-          env: tags=${{ github.event.inputs.tags || '@regression' }}
+          env: grepTags=${{ github.event.inputs.tags || '@regression' }}
         env:
           CYPRESS_USER_EMAIL: ${{ secrets.CYPRESS_USER_EMAIL }}
           CYPRESS_USER_PASSWORD: ${{ secrets.CYPRESS_USER_PASSWORD }}

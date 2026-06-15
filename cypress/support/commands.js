@@ -42,20 +42,36 @@ Cypress.Commands.add('loginDirect', (email, password) => {
 });
 
 Cypress.Commands.add('logout', () => {
-  // Click user avatar in sidebar bottom
-  cy.get('[id^="headlessui-menu-button"]').last().click();
-  cy.contains('[role="menuitem"]', /sign out/i).click();
+  // The TOD app sidebar uses a Radix UI dropdown for the user account menu.
+  // The trigger button ([data-slot="dropdown-menu-trigger"]) is visible in both
+  // collapsed and expanded sidebar states — no expandSidebar() call is needed.
+  //
+  // Step 1: Click the expand sidebar button (it exists in the header when collapsed).
+  cy.expandSidebar();
+
+  // Step 2: Click the user/account Radix dropdown trigger at the bottom of the sidebar.
+  // This is the LAST [data-slot="dropdown-menu-trigger"] on the page (there may be
+  // others inside the main content area when the sidebar is expanded).
+  cy.get('[data-slot="dropdown-menu-trigger"]').last().click();
+
+  // Step 3: Click "Sign out" in the Radix dropdown menu.
+  // "Sign out" renders as div[role="menuitem"][data-slot="dropdown-menu-item"].
+  cy.contains('[role="menuitem"]', /sign out/i, { timeout: 10000 })
+    .should('be.visible')
+    .click();
   cy.url().should('include', '/login');
 });
 
 // ─── Navigation ──────────────────────────────────────────────────────────────
 
-/** Navigate via sidebar link by accessible name. */
-Cypress.Commands.add('navigateTo', (linkText) => {
-  cy.get(`a[href]`)
-    .filter((_, el) => el.textContent.trim() === linkText)
-    .first()
-    .click();
+/**
+ * Navigate via a sidebar link by its href. The TOD sidebar links are icon-only
+ * (empty text), so they must be selected by href, never by link text.
+ */
+Cypress.Commands.add('navigateTo', (href) => {
+  cy.expandSidebar();
+  cy.get(`a[href="${href}"]`).first().click({ force: true });
+  cy.location('pathname').should('include', href === '/' ? '/' : href);
   cy.waitForPageLoad();
 });
 
@@ -153,15 +169,12 @@ Cypress.Commands.add('waitForModal', (headingText) => {
   }).should('be.visible');
 });
 
-/** Close the active modal by clicking Cancel or the × button. */
+/** Close the active Radix dialog via its Cancel button or the dialog-close (×). */
 Cypress.Commands.add('closeModal', () => {
-  cy.get('body').then(($body) => {
-    if ($body.find('button:contains("Cancel")').length) {
-      cy.contains('button', 'Cancel').click();
-    } else {
-      cy.get('[aria-label="Close"], [aria-label="Dismiss"], button[title="Close"]').first().click();
-    }
+  cy.get('[role="dialog"]').within(() => {
+    cy.get('button:contains("Cancel"), [data-slot="dialog-close"]').first().click({ force: true });
   });
+  cy.get('[role="dialog"]').should('not.exist');
 });
 
 // ─── Toast / Notification ─────────────────────────────────────────────────────

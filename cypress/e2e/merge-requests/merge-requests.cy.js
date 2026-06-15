@@ -1,6 +1,22 @@
 /**
  * @module Merge Requests - Talent Base
- * @tags @smoke @regression
+ *
+ * The Merge Requests feature reconciles incoming (imported) candidate records
+ * against existing candidates in the Talent Base.
+ *
+ *  - LIST page (/talent-base/merge-requests): heading "Merge Requests" plus a
+ *    list of PENDING requests rendered as links whose href ends in a uuid. Each
+ *    item shows the candidate name, email, source file and the word "pending".
+ *    There is NO approve/reject control on the list.
+ *  - DETAIL page (/talent-base/merge-requests/<uuid>): a field-resolution screen
+ *    showing the existing candidate, a "Pending" badge, and per-field radio
+ *    controls to choose which value to keep. The two action controls are the
+ *    "Merge" button (applies the merge — the approve equivalent) and the "Skip"
+ *    button (dismisses the request — the reject equivalent).
+ *
+ * SAFETY: Clicking "Merge" or "Skip" mutates real, shared dev data
+ * irreversibly (it consumes a pending request). These tests therefore VERIFY
+ * the controls exist, are visible and enabled, but never click them.
  */
 
 import { MergeRequestsPage } from '../../pages/MergeRequestsPage';
@@ -11,79 +27,81 @@ describe('Merge Requests - Talent Base', { tags: ['@smoke', '@regression'] }, ()
   beforeEach(() => {
     cy.login();
     cy.visit('/talent-base/merge-requests');
+    page.waitUntilReady();
   });
 
-  // ─── READ ──────────────────────────────────────────────────────────────────
+  // ─── READ (list page) ──────────────────────────────────────────────────────
 
-  context('Read', () => {
-    it('@smoke - should load merge requests page', () => {
+  context('Read - list page', () => {
+    it('loads the Merge Requests list with its heading', { tags: ['@smoke'] }, () => {
       cy.url().should('include', '/talent-base/merge-requests');
-      cy.get('body').should('be.visible');
+      page.assertListHeading();
     });
 
-    it('@sanity - should display page content', () => {
-      cy.get('body').should('not.be.empty');
+    it('shows at least one pending merge request item', { tags: ['@smoke', '@regression'] }, () => {
+      page.assertHasPendingRequests();
     });
 
-    it('@regression - should show list of merge requests or empty state', () => {
-      cy.get('body').then(($body) => {
-        const hasRequests = $body.find('table tbody tr, [data-request], li[class]').length > 0;
-        if (hasRequests) {
-          cy.log('Merge requests list is visible');
-        } else {
-          cy.log('Empty state shown — no merge requests in current environment');
-        }
-        cy.get('body').should('be.visible');
+    it('renders every request item as a uuid detail link', { tags: ['@regression'] }, () => {
+      page.requestItems().each(($el) => {
+        const href = $el.attr('href');
+        expect(href, 'request href').to.match(
+          /\/talent-base\/merge-requests\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+        );
       });
     });
 
-    it('@regression - should search merge requests', () => {
-      cy.get('body').then(($body) => {
-        const hasSearch = $body.find('[placeholder*="Search"]').length > 0;
-        if (hasSearch) {
-          cy.get('[placeholder*="Search"]').clear().type('test');
-          cy.waitForPageLoad();
-          cy.get('body').should('be.visible');
-        } else {
-          cy.log('No search input on merge requests page');
-        }
-      });
+    it('marks pending requests with the "pending" status text', { tags: ['@regression'] }, () => {
+      // At least the first request item must be labelled pending. We assert on
+      // the item text directly rather than the whole body to keep it meaningful.
+      page.requestItems().first().invoke('text').should('match', /pending/i);
+    });
+
+    it('shows candidate identity (name + email) on each request item', { tags: ['@regression'] }, () => {
+      page.requestItems().first().invoke('text').should('match', /@/); // email present
     });
   });
 
-  // ─── WORKFLOW ─────────────────────────────────────────────────────────────
+  // ─── WORKFLOW - open detail ──────────────────────────────────────────────────
 
-  context('Workflow - Approve/Reject', () => {
-    it('@regression - should be able to open a merge request if one exists', () => {
-      cy.get('body').then(($body) => {
-        const requestLinks = $body.find('table tbody tr, [data-request]');
-        if (requestLinks.length > 0) {
-          requestLinks.first().click();
-          cy.get('body').should('be.visible');
-        } else {
-          cy.log('No merge requests to open in current environment');
-        }
-      });
+  context('Workflow - open a merge request', () => {
+    it('opens the first request and lands on the detail route', { tags: ['@smoke', '@regression'] }, () => {
+      page.openFirstRequest();
+      page.assertOnDetailPage();
     });
 
-    it('@regression - should display approve/reject actions on a merge request', () => {
-      cy.get('body').then(($body) => {
-        const hasRows = $body.find('table tbody tr').length > 0;
-        if (hasRows) {
-          cy.get('table tbody tr').first().click();
-          cy.get('body').then(($detailBody) => {
-            const hasApprove = $detailBody.find('[class*="approve"], button:contains("Approve")').length > 0;
-            const hasReject = $detailBody.find('[class*="reject"], button:contains("Reject")').length > 0;
-            if (hasApprove || hasReject) {
-              cy.log('Approve/Reject actions are visible');
-            } else {
-              cy.log('No action buttons found — may require a specific merge request state');
-            }
-          });
-        } else {
-          cy.log('No merge requests available in current environment');
-        }
-      });
+    it('shows the candidate details on the detail page', { tags: ['@regression'] }, () => {
+      page.openFirstRequest();
+      // The detail page surfaces the existing candidate's identity (name + email).
+      cy.contains(/Existing candidate:/i).should('be.visible');
+      // ...and the candidate's email is shown as the always-kept Email value.
+      cy.contains(/Email \(always kept from existing\)/i).should('be.visible');
+    });
+
+    it('shows the per-field merge resolution UI', { tags: ['@regression'] }, () => {
+      page.openFirstRequest();
+      page.assertProfileFieldResolution();
+    });
+  });
+
+  // ─── WORKFLOW - approve/reject controls ──────────────────────────────────────
+
+  context('Workflow - approve (Merge) / reject (Skip) controls', () => {
+    it('exposes both Merge and Skip action controls, enabled', { tags: ['@smoke', '@regression'] }, () => {
+      page.openFirstRequest();
+      // Non-destructive: assert the controls are present + actionable. We do NOT
+      // click them — completing a merge or skip consumes real shared dev data.
+      page.assertActionControlsPresent();
+    });
+
+    it('exposes the Merge button (approve equivalent) as enabled', { tags: ['@regression'] }, () => {
+      page.openFirstRequest();
+      page.mergeButton().should('be.visible').and('be.enabled');
+    });
+
+    it('exposes the Skip button (reject equivalent) as enabled', { tags: ['@regression'] }, () => {
+      page.openFirstRequest();
+      page.skipButton().should('be.visible').and('be.enabled');
     });
   });
 });

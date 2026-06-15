@@ -1,0 +1,221 @@
+{
+  "url": "/talent-base/merge-requests",
+  "headings": [
+    "Merge Requests"
+  ],
+  "tableHeaders": [],
+  "placeholders": [],
+  "dataSlots": [
+    "scroll-area",
+    "scroll-area-viewport",
+    "separator",
+    "dropdown-menu-trigger",
+    "avatar",
+    "avatar-fallback",
+    "badge"
+  ],
+  "roles": [
+    "none"
+  ],
+  "stableIds": [
+    "_R_",
+    "microsoft-clarity"
+  ],
+  "buttons": [
+    {
+      "text": "SD",
+      "id": "radix-_R_2t9iupfbb_",
+      "type": "button",
+      "data-slot": "dropdown-menu-trigger"
+    },
+    {
+      "text": "",
+      "title": "Expand sidebar",
+      "type": "button"
+    },
+    {
+      "text": "S",
+      "id": "headlessui-menu-button-_R_1taiupfbb_",
+      "type": "button"
+    }
+  ],
+  "inputs": [],
+  "links": [
+    {
+      "href": "/",
+      "text": ""
+    },
+    {
+      "href": "/dashboard",
+      "text": ""
+    },
+    {
+      "href": "/jobs",
+      "text": ""
+    },
+    {
+      "href": "/pipelines",
+      "text": ""
+    },
+    {
+      "href": "/templates",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/candidates",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/imports",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/merge-requests",
+      "text": ""
+    },
+    {
+      "href": "/docs",
+      "text": ""
+    },
+    {
+      "href": "/feedback",
+      "text": ""
+    },
+    {
+      "href": "/settings",
+      "text": ""
+    },
+    {
+      "href": "/talent-base",
+      "text": "Talent Base"
+    },
+    {
+      "href": "/talent-base/merge-requests",
+      "text": "Merge-requests"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb63a-0b9b-7c02-aba8-c752d3249189",
+      "text": "Priya Mehtapriya.mehta@gmail.com · C_candidates.csvNew: Priya Mehtapending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb63a-0b88-7151-ad13-76c93e90634c",
+      "text": "Rahul Sharmarahul.sharma@gmail.com · C_candidates.csvNew: Rahul Sharmapending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb5b6-452a-77d0-a82c-1a980836dd73",
+      "text": "Pooja Reddypooja.reddy@gmail.com · A_good.xlsxNew: Pooja Reddypending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb5b6-451f-72b3-9eb5-8de0cce60ae4",
+      "text": "Karan Malhotrakaran.m@gmail.com · A_good.xlsxNew: Karan Malhotrapending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb5b6-4511-7af0-91cc-8fe7b94b427b",
+      "text": "Anjali Nairanjali.nair@gmail.com · A_good.xlsxNew: Anjali Nairpending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb5b6-4502-7c92-849f-2d7c3034d65b",
+      "text": "Vikas Guptavikas.gupta@gmail.com · A_good.xlsxNew: Vikas Guptapending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb5b6-44f7-7482-88e4-bbdf8a841511",
+      "text": "Neha Kapoorneha.kapoor@gmail.com · A_good.xlsxNew: Neha Kapoorpending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb5b6-44ea-74a2-a4d0-1a52d4aa8bef",
+      "text": "Rohit Singhrohit.singh@gmail.com · A_good.xlsxNew: Rohit Singhpending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb5b6-44df-79b3-96e9-766cdf8fb0e6",
+      "text": "Sneha Iyersneha.iyer@gmail.com · A_good.xlsxNew: Sneha Iyerpending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb5b6-44d1-7900-b070-d77f9d25f131",
+      "text": "Amit Vermaamit.verma@gmail.com · A_good.xlsxNew: Amit Vermapending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb5b6-44c2-75a3-b78e-fa255fcdd009",
+      "text": "Priya Mehtapriya.mehta@gmail.com · A_good.xlsxNew: Priya Mehtapending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb5b6-44af-7780-b4db-fe5217879d65",
+      "text": "Rahul Sharmarahul.sharma@gmail.com · A_good.xlsxNew: Rahul Sharmapending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb59a-2b3f-7553-8e2d-20ba340a061e",
+      "text": "Pooja Reddypooja.reddy@gmail.com · A_good.xlsxNew: Pooja Reddypending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb59a-2b32-7963-b5a3-375319b46e54",
+      "text": "Karan Malhotrakaran.m@gmail.com · A_good.xlsxNew: Karan Malhotrapending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb59a-2b24-7dd3-a5af-4b8787af3931",
+      "text": "Anjali Nairanjali.nair@gmail.com · A_good.xlsxNew: Anjali Nairpending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb59a-2b19-7f81-ac04-4225f91c9a41",
+      "text": "Vikas Guptavikas.gupta@gmail.com · A_good.xlsxNew: Vikas Guptapending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb59a-2b0b-7f42-99f2-e9247bdad6aa",
+      "text": "Neha Kapoorneha.kapoor@gmail.com · A_good.xlsxNew: Neha Kapoorpending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb59a-2afe-7e60-91c3-02b24426fdeb",
+      "text": "Rohit Singhrohit.singh@gmail.com · A_good.xlsxNew: Rohit Singhpending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb59a-2af1-7500-90c2-183803f0ee52",
+      "text": "Sneha Iyersneha.iyer@gmail.com · A_good.xlsxNew: Sneha Iyerpending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb59a-2ae1-7e93-9d1d-28ce621605dd",
+      "text": "Amit Vermaamit.verma@gmail.com · A_good.xlsxNew: Amit Vermapending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb59a-2ad0-7eb1-8cc0-7822b85952d1",
+      "text": "Priya Mehtapriya.mehta@gmail.com · A_good.xlsxNew: Priya Mehtapending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019eb59a-2ab4-7980-a987-4124d5633879",
+      "text": "Rahul Sharmarahul.sharma@gmail.com · A_good.xlsxNew: Rahul Sharmapending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019e9121-6654-7a03-9858-bfd94deb7a08",
+      "text": "Sowmya Deepikasowmyasagar.k@gmail.com · LinkedInNew: Rahul Sharmapending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019dcef9-b8c8-7992-8d23-ab7799560714",
+      "text": "Ashrithakushiniashritha@gmail.com · Profile Sample.xlsxNew: Nagmapending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019dcef9-b8ae-7282-bf88-adbb003c5d8f",
+      "text": "Sasmita Mudulisasmitamuduli441@gmail.com · Profile Sample.xlsxNew: Sasmita Mudul"
+    },
+    {
+      "href": "/talent-base/merge-requests/019dcef9-b893-7c00-89cd-16cddc780233",
+      "text": "Mahalaxmimahalaxmi171210@gmail.com · Profile Sample.xlsxNew: Mahalaxmipending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019dcef9-b87a-7012-b7a8-63748ffab2e0",
+      "text": "Shaik Junaidsportsspiritsk16@gmail.com · Profile Sample.xlsxNew: Shaik Junaidpen"
+    },
+    {
+      "href": "/talent-base/merge-requests/019dcef9-b860-7770-aa63-b7ea0127571f",
+      "text": "Pallavi Pradhanromapallavi@gmail.com · Profile Sample.xlsxNew: Pallavi Pradhanpe"
+    },
+    {
+      "href": "/talent-base/merge-requests/019dcef9-b845-7332-a734-13d0787c9a7f",
+      "text": "Sravya Javajisravyaraojavaji@gmail.com · Profile Sample.xlsxNew: Sravya Javajipe"
+    },
+    {
+      "href": "/talent-base/merge-requests/019dcef9-b813-7c31-925b-a2b9908b146a",
+      "text": "Ramadevirama.vallap@gmail.com · Profile Sample.xlsxNew: Ramadevipending"
+    },
+    {
+      "href": "/talent-base/merge-requests/019d8a7a-5a09-7850-b504-93261717ff59",
+      "text": "Himanshu Panthpant147@gmail.com · Himanshu Pant_Resume (1).pdfNew: HIMANSHU PANT"
+    }
+  ]
+}

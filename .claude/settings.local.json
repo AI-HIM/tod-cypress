@@ -15,7 +15,40 @@
       "Bash(TEST_ENV=dev npx playwright test --project=chromium tests/auth/login.spec.ts:32)",
       "Bash(npx cypress *)",
       "Bash(node -e \"require\\('./cypress.config.js'\\); console.log\\('Config OK'\\)\")",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "WebFetch(domain:todapp-dev.tynybay.com)",
+      "Bash(npx --yes playwright --version)",
+      "Read(//private/tmp/**)",
+      "Bash(npx playwright@1.60.0 --version)",
+      "Bash(node -e \"require\\('playwright'\\)\")",
+      "Read(//Users/harry/.cache/**)",
+      "Bash(npm list *)",
+      "Read(//Users/harry/**)",
+      "Bash(/Users/harry/Desktop/QAptain-QA/backend/.venv/bin/playwright --version)",
+      "Bash(/Users/harry/Desktop/QAptain-QA/backend/.venv/bin/python --version)",
+      "Bash(cat > *)",
+      "Bash(/Users/harry/Desktop/QAptain-QA/backend/.venv/bin/python find_logout_selectors.py)",
+      "Bash(curl -s 'https://todapp-dev.tynybay.com/login')",
+      "Bash(curl -s -c /tmp/tod_cookies.txt -b /tmp/tod_cookies.txt -X POST https://todapp-dev.tynybay.com/api/auth/callback/credentials -H 'Content-Type: application/x-www-form-urlencoded' -H 'Origin: https://todapp-dev.tynybay.com' -H 'Referer: https://todapp-dev.tynybay.com/login' -d 'email=sowmyasagar.k%40gmail.com&password=Password%40123' -v)",
+      "Bash(curl -s -c /tmp/tod_cookies.txt -b /tmp/tod_cookies.txt https://todapp-dev.tynybay.com/api/auth/csrf -H 'Accept: application/json')",
+      "Bash(curl -s -c /tmp/tod_cookies.txt 'https://todapp-dev.tynybay.com/api/auth/signin' -v)",
+      "Bash(curl -s 'https://todapp-dev.tynybay.com/_next/static/chunks/0ya7b2.azm.mz.js')",
+      "Bash(curl -s 'https://todapp-dev.tynybay.com/_next/static/chunks/02fwx6k9ckske.js')",
+      "Bash(curl -s 'https://todapp-dev.tynybay.com/_next/static/chunks/057dr41n07c.r.js')",
+      "Bash(curl -s 'https://todapp-dev.tynybay.com/_next/static/chunks/15~aziplge~wu.js')",
+      "Bash(grep -oE '\"[^\"]{0,60}\\(textarea|placeholder|chat|prompt|Craft|JD|job[- ]desc|wizard|Generate|Share|Add to JOB|autoResize|send\\)[^\"]{0,60}\"')",
+      "Bash(curl -s 'https://todapp-dev.tynybay.com/_next/static/chunks/0cljsodm.x9.m.js')",
+      "Bash(TEST_ENV=dev npx cypress run --spec \"cypress/e2e/jobs/business-units.cy.js\" --browser electron --config 'video=false,trashAssetsBeforeRuns=false' --reporter spec)",
+      "Bash(TEST_ENV=dev npx cypress run --spec \"cypress/e2e/_discovery/discover-create-forms.cy.js\" --browser electron --config 'video=false,trashAssetsBeforeRuns=false,excludeSpecPattern=[]' --reporter spec)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, indent=1\\)[:4000]\\)\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('headers',d.get\\('tableHeaders'\\)\\); [print\\(repr\\(b.get\\('text',''\\)[:80]\\)\\) for b in d.get\\('buttons',[]\\) if b.get\\('text'\\) and 'Sowmya' not in b.get\\('text',''\\)][:20]\")",
+      "Bash(TEST_ENV=dev npx cypress run --spec \"cypress/e2e/_discovery/discover-mine.cy.js\" --browser electron --config 'video=false,trashAssetsBeforeRuns=false' --reporter spec)",
+      "Bash(TEST_ENV=dev npx cypress run --spec \"cypress/e2e/_discovery/probe-behavior.cy.js\" --browser electron --config 'video=false,trashAssetsBeforeRuns=false,excludeSpecPattern=[]' --reporter spec)",
+      "Bash(python3 *)",
+      "Bash(TEST_ENV=dev npx cypress run --spec \"cypress/e2e/auth/login.cy.js\" --browser electron --config 'video=false,trashAssetsBeforeRuns=false' --reporter spec)"
+    ],
+    "additionalDirectories": [
+      "/tmp"
     ]
   }
 }

@@ -12,10 +12,19 @@ const ENV_URLS = {
 
 const testEnv = process.env.TEST_ENV || 'dev';
 
+// Credentials are read from the environment only — never hardcoded.
+// Locally they come from .env.<TEST_ENV> (gitignored); in CI they come from
+// the CYPRESS_USER_EMAIL / CYPRESS_USER_PASSWORD secrets, which Cypress also
+// merges into Cypress.env() automatically.
+const userEmail = process.env.USER_EMAIL || process.env.CYPRESS_USER_EMAIL;
+const userPassword = process.env.USER_PASSWORD || process.env.CYPRESS_USER_PASSWORD;
+
 module.exports = defineConfig({
+  projectId: 'irc68t',
   e2e: {
     baseUrl: process.env.BASE_URL || ENV_URLS[testEnv] || ENV_URLS.dev,
     specPattern: 'cypress/e2e/**/*.cy.js',
+    excludeSpecPattern: ['cypress/e2e/_discovery/**'],
     supportFile: 'cypress/support/e2e.js',
     fixturesFolder: 'cypress/fixtures',
 
@@ -56,8 +65,8 @@ module.exports = defineConfig({
     env: {
       TEST_ENV: testEnv,
       BASE_URL: process.env.BASE_URL || ENV_URLS[testEnv] || ENV_URLS.dev,
-      USER_EMAIL: process.env.USER_EMAIL || 'sowmyasagar.k@gmail.com',
-      USER_PASSWORD: process.env.USER_PASSWORD || 'Password@123',
+      USER_EMAIL: userEmail,
+      USER_PASSWORD: userPassword,
       INVALID_EMAIL: 'invalid@test.com',
       INVALID_PASSWORD: 'WrongPassword123',
       grepFilterSpecs: true,
@@ -65,6 +74,16 @@ module.exports = defineConfig({
     },
 
     setupNodeEvents(on, config) {
+      // Fail fast with a clear message instead of silently logging in with a
+      // wrong/empty credential and producing a confusing downstream failure.
+      if (!userEmail || !userPassword) {
+        throw new Error(
+          'Missing TOD credentials. Set USER_EMAIL and USER_PASSWORD in ' +
+            `.env.${testEnv} (local) or the CYPRESS_USER_EMAIL / CYPRESS_USER_PASSWORD ` +
+            'secrets (CI). See .env.example.'
+        );
+      }
+
       require('@cypress/grep/src/plugin')(config);
       require('cypress-mochawesome-reporter/plugin')(on);
 

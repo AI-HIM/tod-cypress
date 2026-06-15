@@ -1,79 +1,68 @@
 /**
  * @module Home
- * @tags @smoke @sanity @regression
+ * The AI-assistant home page (/). Asserts the page loads with its greeting and
+ * suggestion prompts, and that sidebar navigation actually changes the URL.
  */
+
+import { HomePage } from '../../pages/HomePage';
+
+const homePage = new HomePage();
 
 describe('Home Page', { tags: ['@smoke', '@sanity', '@regression'] }, () => {
   beforeEach(() => {
     cy.login();
     cy.visit('/');
+    homePage.waitUntilReady();
   });
 
-  context('Happy Path', () => {
-    it('@smoke - should load home page after login', () => {
-      cy.url().should('not.include', '/login');
-      cy.get('body').should('be.visible');
+  context('Happy Path', { tags: ['@smoke'] }, () => {
+    it('loads the home page with the personalized greeting', { tags: ['@critical'] }, () => {
+      homePage.assertHomeLoaded();
     });
 
-    it('@smoke - should display sidebar navigation', () => {
-      cy.get('nav, aside').should('exist');
-    });
-
-    it('@sanity - should expand sidebar and show nav links', () => {
-      cy.expandSidebar();
-      cy.get('a[href="/jobs"]').should('exist');
+    it('shows the AI assistant suggestion prompts', () => {
+      homePage.assertSuggestionsVisible();
     });
   });
 
-  context('Navigation', () => {
-    it('@regression - should navigate to Jobs via sidebar', () => {
-      cy.expandSidebar();
-      cy.get('a[href="/jobs"]').click();
-      cy.url().should('include', '/jobs');
+  context('Navigation', { tags: ['@regression'] }, () => {
+    it('navigates to Jobs and changes the URL', () => {
+      cy.navigateTo('/jobs');
+      cy.location('pathname').should('eq', '/jobs');
     });
 
-    it('@regression - should navigate to Dashboard via sidebar', () => {
-      cy.expandSidebar();
-      cy.get('a[href="/dashboard"]').click();
-      cy.url().should('include', '/dashboard');
+    it('navigates to Dashboard and changes the URL', () => {
+      cy.navigateTo('/dashboard');
+      cy.location('pathname').should('eq', '/dashboard');
     });
 
-    it('@regression - should navigate to Candidates via sidebar', () => {
-      cy.expandSidebar();
-      cy.get('a[href="/talent-base/candidates"]').click();
-      cy.url().should('include', '/talent-base/candidates');
+    it('navigates to Candidates and changes the URL', () => {
+      cy.navigateTo('/talent-base/candidates');
+      cy.location('pathname').should('include', '/talent-base/candidates');
     });
 
-    it('@regression - should navigate to Pipelines via sidebar', () => {
-      cy.expandSidebar();
-      cy.get('a[href="/pipelines"]').click();
-      cy.url().should('include', '/pipelines');
+    it('navigates to Pipelines and changes the URL', () => {
+      cy.navigateTo('/pipelines');
+      cy.location('pathname').should('eq', '/pipelines');
     });
 
-    it('@regression - should navigate to Templates via sidebar', () => {
-      cy.expandSidebar();
-      cy.get('a[href="/templates"]').click();
-      cy.url().should('include', '/templates');
+    it('navigates to Templates and changes the URL', () => {
+      cy.navigateTo('/templates');
+      cy.location('pathname').should('eq', '/templates');
     });
 
-    it('@regression - should navigate to Imports via sidebar', () => {
-      cy.expandSidebar();
-      cy.get('a[href="/talent-base/imports"]').click();
-      cy.url().should('include', '/talent-base/imports');
-    });
-
-    it('@regression - should navigate to Settings via sidebar', () => {
-      cy.expandSidebar();
-      cy.get('a[href="/settings/profile"]').click();
-      cy.url().should('include', '/settings');
+    it('navigates to Imports and changes the URL', () => {
+      cy.navigateTo('/talent-base/imports');
+      cy.location('pathname').should('include', '/talent-base/imports');
     });
   });
 
-  context('Unauthenticated Access', () => {
-    it('@critical - should redirect unauthenticated user to login', () => {
+  context('Unauthenticated Access', { tags: ['@critical', '@regression'] }, () => {
+    it('redirects an unauthenticated visit to /jobs back to /login', () => {
       cy.clearCookies();
+      cy.clearLocalStorage();
       cy.visit('/jobs');
-      cy.url().should('include', '/login');
+      cy.location('pathname', { timeout: 15000 }).should('include', '/login');
     });
   });
 });

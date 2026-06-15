@@ -1,0 +1,46 @@
+{
+  "found": true,
+  "heading": [
+    "Invite Member"
+  ],
+  "inputs": [
+    {
+      "tag": "input",
+      "id": "invite-email",
+      "placeholder": "user@company.com",
+      "type": "email",
+      "data-slot": "input"
+    },
+    {
+      "tag": "input",
+      "id": "invite-name",
+      "placeholder": "Jane Smith",
+      "data-slot": "input"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Select a role",
+      "type": "button",
+      "data-slot": "select-trigger"
+    },
+    {
+      "text": "No manager",
+      "type": "button",
+      "data-slot": "select-trigger"
+    },
+    {
+      "text": "Cancel",
+      "data-slot": "button"
+    },
+    {
+      "text": "Invite Member",
+      "data-slot": "button"
+    },
+    {
+      "text": "Close",
+      "type": "button",
+      "data-slot": "dialog-close"
+    }
+  ]
+}

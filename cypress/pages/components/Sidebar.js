@@ -78,13 +78,22 @@ export class Sidebar {
   }
 
   openUserMenu() {
+    // Expand the sidebar so the user label is visible (avatar + name).
+    // The Radix dropdown trigger is visible in both collapsed and expanded states,
+    // but expanding ensures tests are deterministic and see the full username.
+    this.expand();
+    // Use .last() — the expanded sidebar may introduce extra dropdown triggers
+    // in the chats/content area; the sidebar user button is always last in DOM order
+    // while the sidebar is expanded (it sits at the bottom of the fixed sidebar).
     cy.get(S.userMenuBtn).last().click();
     return this;
   }
 
   signOut() {
     this.openUserMenu();
-    cy.contains(S.signOutMenuItem, /sign out/i).click();
+    cy.contains(S.menuItem, /sign out/i)
+      .should('be.visible')
+      .click();
     cy.url().should('include', '/login');
     return this;
   }

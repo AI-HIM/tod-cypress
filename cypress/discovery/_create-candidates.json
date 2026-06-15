@@ -1,0 +1,39 @@
+{
+  "found": true,
+  "heading": [
+    "Add Candidate"
+  ],
+  "inputs": [
+    {
+      "tag": "input",
+      "type": "file"
+    },
+    {
+      "tag": "input",
+      "placeholder": "Search jobs...",
+      "type": "text",
+      "aria-label": "Search jobs"
+    },
+    {
+      "tag": "input",
+      "placeholder": "Search buckets...",
+      "type": "text",
+      "aria-label": "Search buckets"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Cancel",
+      "data-slot": "button"
+    },
+    {
+      "text": "Add Candidate",
+      "data-slot": "button"
+    },
+    {
+      "text": "Close",
+      "type": "button",
+      "data-slot": "dialog-close"
+    }
+  ]
+}

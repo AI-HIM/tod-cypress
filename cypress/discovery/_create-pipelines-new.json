@@ -1,0 +1,83 @@
+{
+  "url": "/pipelines/new",
+  "headings": [
+    "New Pipeline"
+  ],
+  "inputs": [
+    {
+      "tag": "input",
+      "type": "text",
+      "id": "pipeline-name",
+      "name": "",
+      "placeholder": "e.g., BPO Hiring Pipeline",
+      "slot": "input",
+      "required": false,
+      "maxLength": -1,
+      "ariaLabel": null
+    }
+  ],
+  "textareas": [
+    {
+      "tag": "textarea",
+      "id": "pipeline-description",
+      "name": "",
+      "placeholder": "Briefly describe what this pipeline is used for...",
+      "slot": "textarea"
+    }
+  ],
+  "selects": [],
+  "labels": [
+    {
+      "text": "Pipeline Name",
+      "for": "pipeline-name"
+    },
+    {
+      "text": "Description\n(optional)",
+      "for": "pipeline-description"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "SD",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": "dropdown-menu-trigger"
+    },
+    {
+      "text": "",
+      "type": "button",
+      "title": "Expand sidebar",
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "S",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "Add Stage",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": "button"
+    },
+    {
+      "text": "Save Pipeline",
+      "type": "submit",
+      "title": null,
+      "disabled": false,
+      "slot": "button"
+    }
+  ]
+}

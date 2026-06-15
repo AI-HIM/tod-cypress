@@ -1,0 +1,368 @@
+{
+  "url": "/templates",
+  "headings": [
+    "Message Templates",
+    "Basic Screening",
+    "Interview",
+    "Outreach",
+    "Rejected",
+    "Selected",
+    "Shortlisted"
+  ],
+  "tableHeaders": [],
+  "placeholders": [
+    "Search templates and folders..."
+  ],
+  "dataSlots": [
+    "scroll-area",
+    "scroll-area-viewport",
+    "separator",
+    "dropdown-menu-trigger",
+    "avatar",
+    "avatar-fallback",
+    "button",
+    "input",
+    "badge"
+  ],
+  "roles": [
+    "none",
+    "button"
+  ],
+  "stableIds": [
+    "_R_",
+    "microsoft-clarity"
+  ],
+  "buttons": [
+    {
+      "text": "SD",
+      "id": "radix-_R_2t9iupfbb_",
+      "type": "button",
+      "data-slot": "dropdown-menu-trigger"
+    },
+    {
+      "text": "",
+      "title": "Expand sidebar",
+      "type": "button"
+    },
+    {
+      "text": "S",
+      "id": "headlessui-menu-button-_R_1taiupfbb_",
+      "type": "button"
+    },
+    {
+      "text": "Sync WhatsApp",
+      "title": "Pull approved WhatsApp templates from icpaas",
+      "data-slot": "button"
+    },
+    {
+      "text": "Basic ScreeningBasic Screening3 steps"
+    },
+    {
+      "text": "",
+      "title": "Delete folder",
+      "data-slot": "button"
+    },
+    {
+      "text": "Interview3 steps"
+    },
+    {
+      "text": "",
+      "title": "Delete folder",
+      "data-slot": "button"
+    },
+    {
+      "text": "OutreachOutreach1 step"
+    },
+    {
+      "text": "",
+      "title": "Delete folder",
+      "data-slot": "button"
+    },
+    {
+      "text": "Rejected1 step"
+    },
+    {
+      "text": "",
+      "title": "Delete folder",
+      "data-slot": "button"
+    },
+    {
+      "text": "Selected1 step"
+    },
+    {
+      "text": "",
+      "title": "Delete folder",
+      "data-slot": "button"
+    },
+    {
+      "text": "ShortlistedShortlisted4 steps"
+    },
+    {
+      "text": "",
+      "title": "Delete folder",
+      "data-slot": "button"
+    }
+  ],
+  "inputs": [
+    {
+      "tag": "input",
+      "placeholder": "Search templates and folders...",
+      "data-slot": "input"
+    }
+  ],
+  "links": [
+    {
+      "href": "/",
+      "text": ""
+    },
+    {
+      "href": "/dashboard",
+      "text": ""
+    },
+    {
+      "href": "/jobs",
+      "text": ""
+    },
+    {
+      "href": "/pipelines",
+      "text": ""
+    },
+    {
+      "href": "/templates",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/candidates",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/imports",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/merge-requests",
+      "text": ""
+    },
+    {
+      "href": "/docs",
+      "text": ""
+    },
+    {
+      "href": "/feedback",
+      "text": ""
+    },
+    {
+      "href": "/settings",
+      "text": ""
+    },
+    {
+      "href": "/templates",
+      "text": "Templates"
+    },
+    {
+      "href": "/templates/new",
+      "text": "New Template",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/folders/new",
+      "text": "New Folder",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/folders/019dcdd3-a5eb-7133-8fc8-68defe1b514a",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/folders/019dd447-a989-71e3-a420-b8f43c72f2fd",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/folders/019dcdce-f273-7aa1-b601-77a6c19f4037",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/folders/019dd448-673f-7371-8182-d4ba3de351d7",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/folders/019dd448-1e57-7ad1-bdb4-d15f90399553",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/folders/019dcdd5-7774-7353-a372-520d6f306f15",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019dcdd4-b0b6-7053-8f78-8a42a74b6a7e",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019dcdd4-b0b5-7941-9676-12681ac6f619",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019dcdd4-b0b6-7053-8f78-8a5d08160cf3",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-7adb0616bf5b",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-7a5e5883165e",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-79dfa7c034db",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-79937c0e7890",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-796eceeb8b14",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-7a1f984153bf",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-7973085b4f69",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-7a2ddb510cce",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-794ce454101c",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-79a0ae37424f",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-79c774b62119",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-79bcb37f0eac",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-793c32624e9a",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-79f823e7c225",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-79e060a6781a",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-7a0836c44dfe",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-795956fdc7cd",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-7989a52ef7e2",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-7a749eb2ccbd",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-7a8a54da00c3",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-7a6829a544a6",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-7903180c1fca",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-792875691ea4",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-791791425a23",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-7a99b660c309",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-7ac6de4ab909",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-7a48370cc343",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-7abe662bad91",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-7a357f90961f",
+      "text": "",
+      "data-slot": "button"
+    },
+    {
+      "href": "/templates/019daa41-336d-7c20-a068-7aa9721f447a",
+      "text": "",
+      "data-slot": "button"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "found": true,
+  "heading": [
+    "New Business Unit"
+  ],
+  "inputs": [
+    {
+      "tag": "input",
+      "id": "bu-name",
+      "placeholder": "e.g. Business Unit or Client Name",
+      "data-slot": "input"
+    },
+    {
+      "tag": "textarea",
+      "id": "bu-description",
+      "placeholder": "What is this BU for?",
+      "data-slot": "textarea"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Cancel",
+      "data-slot": "button"
+    },
+    {
+      "text": "Create BU",
+      "data-slot": "button"
+    },
+    {
+      "text": "Close",
+      "type": "button",
+      "data-slot": "dialog-close"
+    }
+  ]
+}

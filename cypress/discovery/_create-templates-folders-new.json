@@ -1,0 +1,342 @@
+{
+  "url": "/templates/folders/new",
+  "headings": [
+    "New Folder"
+  ],
+  "inputs": [
+    {
+      "tag": "input",
+      "type": "text",
+      "id": "folder-name",
+      "name": "",
+      "placeholder": "e.g., Outreach Flow",
+      "slot": "input",
+      "required": false,
+      "maxLength": -1,
+      "ariaLabel": null
+    },
+    {
+      "tag": "input",
+      "type": "text",
+      "id": "folder-description",
+      "name": "",
+      "placeholder": "Briefly describe this message flow...",
+      "slot": "input",
+      "required": false,
+      "maxLength": -1,
+      "ariaLabel": null
+    },
+    {
+      "tag": "input",
+      "type": "text",
+      "id": "",
+      "name": "",
+      "placeholder": "Search templates...",
+      "slot": "input",
+      "required": false,
+      "maxLength": -1,
+      "ariaLabel": null
+    }
+  ],
+  "textareas": [],
+  "selects": [],
+  "labels": [
+    {
+      "text": "Folder Name",
+      "for": "folder-name"
+    },
+    {
+      "text": "Description\n(optional)",
+      "for": "folder-description"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "SD",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": "dropdown-menu-trigger"
+    },
+    {
+      "text": "",
+      "type": "button",
+      "title": "Expand sidebar",
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "S",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "Create Folder",
+      "type": "submit",
+      "title": null,
+      "disabled": false,
+      "slot": "button"
+    },
+    {
+      "text": "All",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "WhatsApp",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "Email",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "auth\n\n*{{1}}* is your verification code.",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "confirmation_message\n\nHello {{1}} Thank ",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_ai_interview_trigger_v1\n\nHi {{1",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_attendance_check_v1\n\nHi {{1}}, ",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_feedback_thanks_v1\n\nHi {{1}}, T",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_future_updates\n\nHi {{1}}, Thank",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_interview_confirmed_v1\n\nHi {{1}",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_interview_feedback_v1\n\nHi {{1}}",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_job_interest\n\nHi {{1}}, {{2}} i",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_not_selected_v1\n\nHi {{1}}, Than",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_reminder_1h_v1\n\nHi {{1}}, Your ",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_reminder_24h_v1\n\nHi {{1}}, This",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_reminder_3h_v1\n\nHi {{1}}, Your ",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_reschedule_offer_v1\n\nHi {{1}}, ",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_resume_received_v1\n\nHi {{1}}, W",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_screen_english_v1\n\nHi {{1}}, On",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_screen_not_eligible_v1\n\nHi {{1}",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_screen_shift_v1\n\nHi {{1}}, The ",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_selected_v1\n\nHi {{1}}, We are p",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_shortlisted_book_slot_v1\n\nHi {{",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "digitide_visit_verify_v1\n\nHi {{1}}, We h",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "employee_referral\n\nDear {{1}}, We’re exc",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "gethired_email\n\nHey {{1}} Congratulation",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "get_hired_interview_confriamtion_\n\nDear ",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "hitechcity_walkindrive_confirmation_3\n\nD",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "hitech_walk_in_confirmation\n\nDear {{1}},",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "hitech_walkin_drive_update\n\nDear {{1}}, ",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "orderhiring\n\nHello {{1}} दिनांक {{2}} 📞",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "placement_drive\n\nHello, Greetings from D",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "ranigunj_confiramtion_message\n\nHello {{1",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "thane\n\n*🔶 Digitide Thane Hiring 🔶* नमस",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "thane_confriamtion_test\n\nHi{{1}} Thank y",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    },
+    {
+      "text": "walkin_thane\n\nनमस्कार, तुमची *Customer C",
+      "type": "button",
+      "title": null,
+      "disabled": false,
+      "slot": null
+    }
+  ]
+}

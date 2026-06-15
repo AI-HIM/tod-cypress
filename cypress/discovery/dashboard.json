@@ -1,0 +1,111 @@
+{
+  "url": "/dashboard",
+  "headings": [
+    "Good afternoon, Sowmya",
+    "Needs Attention",
+    "Recent Activity",
+    "Interview Performance",
+    "Hiring Funnel",
+    "Pipeline Trend",
+    "Candidate Sources",
+    "Job Overview"
+  ],
+  "tableHeaders": [],
+  "placeholders": [],
+  "dataSlots": [
+    "scroll-area",
+    "scroll-area-viewport",
+    "separator",
+    "dropdown-menu-trigger",
+    "avatar",
+    "avatar-fallback",
+    "chart"
+  ],
+  "roles": [
+    "none",
+    "img"
+  ],
+  "stableIds": [
+    "recharts1-clip",
+    "recharts4-clip",
+    "candidateGradient",
+    "animationClipPath-recharts-area-6",
+    "recharts7-clip",
+    "_R_",
+    "microsoft-clarity",
+    "recharts_measurement_span"
+  ],
+  "buttons": [
+    {
+      "text": "SD",
+      "id": "radix-_R_2t9iupfbb_",
+      "type": "button",
+      "data-slot": "dropdown-menu-trigger"
+    },
+    {
+      "text": "",
+      "title": "Expand sidebar",
+      "type": "button"
+    },
+    {
+      "text": "S",
+      "id": "headlessui-menu-button-_R_1taiupfbb_",
+      "type": "button"
+    },
+    {
+      "text": "4 open jobs with no candidates",
+      "type": "button"
+    }
+  ],
+  "inputs": [],
+  "links": [
+    {
+      "href": "/",
+      "text": ""
+    },
+    {
+      "href": "/dashboard",
+      "text": ""
+    },
+    {
+      "href": "/jobs",
+      "text": ""
+    },
+    {
+      "href": "/pipelines",
+      "text": ""
+    },
+    {
+      "href": "/templates",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/candidates",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/imports",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/merge-requests",
+      "text": ""
+    },
+    {
+      "href": "/docs",
+      "text": ""
+    },
+    {
+      "href": "/feedback",
+      "text": ""
+    },
+    {
+      "href": "/settings",
+      "text": ""
+    },
+    {
+      "href": "/dashboard",
+      "text": "Dashboard"
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "url": "/jobs",
+  "headings": [
+    "Business Units",
+    "Waters Group BU_3IS514",
+    "Nikolaus - Breitenberg BU_YS41TS",
+    "Beatty, Bahringer and Gutkowski BU_W9C4MS",
+    "Kuhic Inc BU_IDTKDI",
+    "TCS",
+    "Uncategorized(system)"
+  ],
+  "tableHeaders": [],
+  "placeholders": [
+    "Search business units"
+  ],
+  "dataSlots": [
+    "scroll-area",
+    "scroll-area-viewport",
+    "separator",
+    "dropdown-menu-trigger",
+    "avatar",
+    "avatar-fallback",
+    "input",
+    "button"
+  ],
+  "roles": [
+    "none"
+  ],
+  "stableIds": [
+    "_R_",
+    "microsoft-clarity"
+  ],
+  "buttons": [
+    {
+      "text": "SD",
+      "id": "radix-_R_2t9iupfbb_",
+      "type": "button",
+      "data-slot": "dropdown-menu-trigger"
+    },
+    {
+      "text": "",
+      "title": "Expand sidebar",
+      "type": "button"
+    },
+    {
+      "text": "S",
+      "id": "headlessui-menu-button-_R_1taiupfbb_",
+      "type": "button"
+    },
+    {
+      "text": "Grid",
+      "type": "button"
+    },
+    {
+      "text": "List",
+      "type": "button"
+    },
+    {
+      "text": "New BU",
+      "title": "New BU",
+      "data-slot": "button"
+    },
+    {
+      "text": "New Job",
+      "title": "New Job",
+      "data-slot": "button"
+    },
+    {
+      "text": "",
+      "id": "radix-_r_0_",
+      "aria-label": "More",
+      "type": "button",
+      "data-slot": "dropdown-menu-trigger"
+    },
+    {
+      "text": "+ Assign vendor",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "id": "radix-_r_2_",
+      "aria-label": "More",
+      "type": "button",
+      "data-slot": "dropdown-menu-trigger"
+    },
+    {
+      "text": "+ Assign vendor",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "id": "radix-_r_4_",
+      "aria-label": "More",
+      "type": "button",
+      "data-slot": "dropdown-menu-trigger"
+    },
+    {
+      "text": "+ Assign vendor",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "id": "radix-_r_6_",
+      "aria-label": "More",
+      "type": "button",
+      "data-slot": "dropdown-menu-trigger"
+    },
+    {
+      "text": "+ Assign vendor",
+      "type": "button"
+    },
+    {
+      "text": "",
+      "id": "radix-_r_8_",
+      "aria-label": "More",
+      "type": "button",
+      "data-slot": "dropdown-menu-trigger"
+    },
+    {
+      "text": "+ Assign vendor",
+      "type": "button"
+    }
+  ],
+  "inputs": [
+    {
+      "tag": "input",
+      "placeholder": "Search business units",
+      "data-slot": "input"
+    }
+  ],
+  "links": [
+    {
+      "href": "/",
+      "text": ""
+    },
+    {
+      "href": "/dashboard",
+      "text": ""
+    },
+    {
+      "href": "/jobs",
+      "text": ""
+    },
+    {
+      "href": "/pipelines",
+      "text": ""
+    },
+    {
+      "href": "/templates",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/candidates",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/imports",
+      "text": ""
+    },
+    {
+      "href": "/talent-base/merge-requests",
+      "text": ""
+    },
+    {
+      "href": "/docs",
+      "text": ""
+    },
+    {
+      "href": "/feedback",
+      "text": ""
+    },
+    {
+      "href": "/settings",
+      "text": ""
+    },
+    {
+      "href": "/jobs",
+      "text": "Jobs"
+    },
+    {
+      "href": "/careers/global-enterprise-talent-acquisition",
+      "text": "Career Site"
+    },
+    {
+      "href": "/jobs/business-units/019eca98-7c44-71e3-a09e-dd7814926c48",
+      "text": "",
+      "aria-label": "Open Waters Group BU_3IS514"
+    },
+    {
+      "href": "/jobs/business-units/019eca98-6b86-7d33-8d5f-b813a271d9a5",
+      "text": "",
+      "aria-label": "Open Nikolaus - Breitenberg BU_YS41TS"
+    },
+    {
+      "href": "/jobs/business-units/019ec9d4-c7b2-7890-b7b1-43314684f6d1",
+      "text": "",
+      "aria-label": "Open Beatty, Bahringer and Gutkowski BU_W9C4MS"
+    },
+    {
+      "href": "/jobs/business-units/019ec9ab-ccc0-7752-8908-0655f46af57e",
+      "text": "",
+      "aria-label": "Open Kuhic Inc BU_IDTKDI"
+    },
+    {
+      "href": "/jobs/business-units/019e8cde-a769-72b3-b84f-251f6001421f",
+      "text": "",
+      "aria-label": "Open TCS"
+    },
+    {
+      "href": "/jobs/business-units/019e2948-e8f9-7160-9011-8b26f9d2b81a",
+      "text": "",
+      "aria-label": "Open Uncategorized"
+    }
+  ]
+}
