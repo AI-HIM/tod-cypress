@@ -25,7 +25,14 @@ describe('Full Hiring Workflow - E2E', { tags: ['@e2e', '@regression', '@critica
   const pipeline = dataFactory.pipeline();
   const template = dataFactory.template();
 
-  before(() => {
+  // beforeEach (not before) — Cypress's default testIsolation wipes cookies
+  // and storage between tests within a spec, so a session restored only
+  // once in `before()` is gone by Step 2 onward; cy.login()'s cy.session()
+  // call must run before EVERY step to restore/re-validate it each time
+  // (confirmed live 2026-06-16: Step 2's cy.visit('/pipelines/new') landed
+  // on /login instead, cascading into every later step looking for the
+  // wrong page's content).
+  beforeEach(() => {
     cy.login();
   });
 
@@ -71,6 +78,10 @@ describe('Full Hiring Workflow - E2E', { tags: ['@e2e', '@regression', '@critica
     cy.contains('h1, h2', 'New Template').should('be.visible');
     cy.get('#template-name').should('be.visible').clear().type(template.name);
     cy.get('#template-subject').should('be.visible').clear().type(template.subject);
+    // The message body is required — confirmed live 2026-06-16: omitting it
+    // rejects the save with a "Please enter a message body" toast and stays
+    // on /templates/new.
+    cy.get(SELECTORS.templateForm.bodyTextarea).should('be.visible').clear().type(template.body);
     cy.contains('button', 'Save Template').click();
     cy.url().should('include', '/templates');
     cy.url().should('not.include', '/new');
@@ -94,8 +105,10 @@ describe('Full Hiring Workflow - E2E', { tags: ['@e2e', '@regression', '@critica
     cy.visit('/talent-base/imports');
     cy.get('button[title="New Import"]').should('be.visible').click();
     cy.get('[role="dialog"]').should('be.visible');
-    // Cancel without submitting to keep env clean
-    cy.contains('button', /cancel/i).click();
+    // Close without submitting to keep env clean. The New Import dialog has
+    // NO "Cancel" button (confirmed live 2026-06-16) — its buttons are an
+    // icon-only close, "Continue", and "Close".
+    cy.contains('[role="dialog"] button', /^close$/i).click();
     cy.get('[role="dialog"]').should('not.exist');
   });
 
@@ -155,7 +168,9 @@ describe('Candidate Search Workflow - E2E', { tags: ['@e2e', '@regression'] }, (
     // Use whichever candidate already exists in the table rather than a
     // hardcoded seed name, so this test does not depend on fixed env data.
     cy.get('table tbody tr').should('have.length.greaterThan', 0);
-    cy.get('table tbody tr').first().find('td').first().invoke('text').then((rawName) => {
+    // td[0] is the row-selection checkbox column (confirmed live
+    // 2026-06-16, empty text content) — the candidate name is td[1].
+    cy.get('table tbody tr').first().find('td').eq(1).invoke('text').then((rawName) => {
       const term = rawName.trim();
       cy.get('[placeholder="Search"]').clear().type(term);
       cy.waitForPageLoad();
@@ -168,7 +183,10 @@ describe('Candidate Search Workflow - E2E', { tags: ['@e2e', '@regression'] }, (
     cy.visit('/talent-base/candidates');
     cy.get('[placeholder="Search"]').clear().type('ZZZNOMATCH_XYZ_AUTO');
     cy.waitForPageLoad();
-    cy.get('table tbody tr').should('have.length', 0);
+    // No-match renders a single empty-state row ("No candidates found"), not
+    // zero rows (confirmed live 2026-06-16).
+    cy.get('table tbody tr').should('have.length', 1);
+    cy.get('table tbody').should('contain.text', 'No candidates found');
   });
 });
 
@@ -208,6 +226,8 @@ describe('Template Folder Organization Workflow - E2E', { tags: ['@e2e', '@regre
     cy.contains('h1, h2', 'New Template').should('be.visible');
     cy.get('#template-name').should('be.visible').clear().type(tmpl.name);
     cy.get('#template-subject').should('be.visible').clear().type(tmpl.subject);
+    // Required — see Step 3's comment above for the live-confirmed validation.
+    cy.get(SELECTORS.templateForm.bodyTextarea).should('be.visible').clear().type(tmpl.body);
     cy.contains('button', 'Save Template').click();
     cy.url().should('include', '/templates');
     cy.url().should('not.include', '/new');

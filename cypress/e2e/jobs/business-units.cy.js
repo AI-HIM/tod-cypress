@@ -13,14 +13,22 @@
  * Every create test cleans up after itself via a real Delete so this shared dev
  * environment is not polluted.
  *
- * KNOWN LIVE APP DEFECT (confirmed live 2026-06-16): cancelling the "Delete BU"
- * confirm dialog leaves `<body>` with an inline `pointer-events: none` style
- * that never clears — confirmed via direct polling immediately after the
- * Cancel click (present at t+0ms and still present 6+ seconds later), which
- * permanently blocks all further mouse interaction with the page. This is a
- * bug in the app's Radix dialog-close cleanup, not in this test suite — the
- * "keeps the BU when the delete dialog is cancelled" test below asserts on
- * this directly so it fails clearly; do not weaken it to force a pass.
+ * KNOWN LIVE APP DEFECTS (confirmed live 2026-06-16) — both asserted on
+ * directly below; do not weaken either test to force a pass:
+ *  1. Cancelling the "Delete BU" confirm dialog leaves `<body>` with an
+ *     inline `pointer-events: none` style that never clears — confirmed via
+ *     direct polling immediately after the Cancel click (present at t+0ms
+ *     and still present 6+ seconds later), which permanently blocks all
+ *     further mouse interaction with the page. A bug in the app's Radix
+ *     dialog-close cleanup. See "keeps the BU when the delete dialog is
+ *     cancelled" below.
+ *  2. The delete-confirm dialog's title renders the BU name as one unbroken
+ *     string with no min-width constraint on its flex item — for a very
+ *     long, space-less name (e.g. the 100-char boundary case) the title's
+ *     content width balloons past the dialog's own box, pushing the confirm
+ *     button fully outside the viewport and permanently unclickable through
+ *     normal interaction. A CSS layout bug in the confirm-dialog component,
+ *     not a scrolling issue. See "accepts a max-length (100 char) name" below.
  */
 
 import { JobsPage } from '../../pages/JobsPage';
@@ -152,9 +160,40 @@ describe('Jobs - Business Units', { tags: ['@regression'] }, () => {
       jobs.searchBU(name);
       jobs.assertBUExists(name);
 
-      jobs.deleteBU(name);
+      // KNOWN LIVE APP DEFECT (confirmed live 2026-06-16): the delete-confirm
+      // dialog renders the BU name as one unbroken string in its title. The
+      // title's flex item has no min-width constraint, so for a name this
+      // long the title's content width balloons far past the dialog's own
+      // box, pushing the dialog's action buttons fully outside the viewport
+      // (measured live: confirm button rendered ~1640px from the left edge
+      // in a 1440px-wide viewport) — permanently unclickable through normal
+      // interaction. This is a CSS layout bug in the app's confirm-dialog
+      // component, not a scrolling issue (scrollIntoView() cannot fix a
+      // horizontal overflow, confirmed live).
+      //
+      // Capture the button's position now (non-throwing), force the cleanup
+      // click regardless — a real user has no such workaround, but this
+      // boundary-value test still shouldn't orphan data — and assert on the
+      // captured value LAST, so a real regression still fails the test
+      // clearly without skipping the cleanup that must run first.
+      cy.get('[aria-label="More"]').first().click();
+      cy.contains('[role="menu"] [role="menuitem"]', /^Delete BU$/).should('be.visible').click();
+      cy.get('[role="dialog"]').should('be.visible');
+      let confirmBtnRight;
+      cy.contains('[role="dialog"] button', /^Delete BU$/).then(($btn) => {
+        confirmBtnRight = $btn[0].getBoundingClientRect().right;
+      });
+      cy.contains('[role="dialog"] button', /^Delete BU$/).click({ force: true });
+
       jobs.assertDeleteSuccess(name);
       jobs.assertBUNotExists(name);
+
+      cy.then(() => {
+        expect(
+          confirmBtnRight,
+          'confirm button must stay within the viewport — known live bug pushes it off-screen for very long, space-less names'
+        ).to.be.at.most(Cypress.config('viewportWidth'));
+      });
     });
   });
 
@@ -220,15 +259,28 @@ describe('Jobs - Business Units', { tags: ['@regression'] }, () => {
       jobs.assertBUExists(name);
 
       // KNOWN LIVE APP DEFECT (see module JSDoc above): cancelling leaves
-      // `<body>` permanently pointer-events:none. Assert on it directly here
-      // so a regression fails with a clear message instead of a confusing
-      // cy.clear() actionability error deep inside the cleanup step below.
-      cy.get('body').should('not.have.css', 'pointer-events', 'none');
+      // `<body>` permanently pointer-events:none, which blocks all further
+      // interaction including the cleanup below. Capture the value now
+      // (non-throwing), recover via a full navigation (a fresh page load
+      // doesn't carry over the leftover inline style, since it's only a
+      // client-side DOM artifact) so real cleanup can still run, and assert
+      // on the captured value LAST — so a regression still fails clearly
+      // without skipping the cleanup that must run first.
+      let bodyPointerEvents;
+      cy.get('body').then(($body) => {
+        bodyPointerEvents = $body.css('pointer-events');
+      });
 
-      // Real cleanup so we don't pollute the shared env.
+      // Recover + real cleanup so we don't pollute the shared env.
+      cy.visit('/jobs');
+      jobs.waitUntilReady();
       jobs.deleteBU(name);
       jobs.assertDeleteSuccess(name);
       jobs.assertBUNotExists(name);
+
+      cy.then(() => {
+        expect(bodyPointerEvents, 'body pointer-events after cancelling the delete dialog').to.not.equal('none');
+      });
     });
   });
 

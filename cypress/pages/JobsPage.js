@@ -107,9 +107,13 @@ export class JobsPage extends BasePage {
     cy.contains('[role="menu"] [role="menuitem"]', /^Delete BU$/).should('be.visible').click();
     cy.get(M.dialog).should('be.visible');
     cy.contains(M.title, new RegExp(`Delete BU`, 'i')).should('be.visible');
-    // A long BU name wraps the dialog title onto extra lines, which can push
-    // the confirm button out of the visible area — scrollIntoView() first
-    // (same clipping class of issue as PipelinesPage.deletePipeline()).
+    // A long, multi-word BU name can wrap the dialog title onto extra lines,
+    // pushing the confirm button below the visible area — scrollIntoView()
+    // first (same clipping class of issue as PipelinesPage.deletePipeline()).
+    // NOTE: a single unbroken long string (no spaces, e.g. the 100-char
+    // boundary test data) triggers a *different*, horizontal-overflow bug
+    // that scrollIntoView() cannot fix — see the dedicated handling in
+    // business-units.cy.js's max-length-name test.
     cy.contains(`${M.dialog} button`, /^Delete BU$/).scrollIntoView().click();
     return this;
   }

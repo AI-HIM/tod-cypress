@@ -272,13 +272,23 @@ export const truncate = (str, maxLen = 50) =>
 export const maxLengthString = (len = 255) => 'A'.repeat(len);
 
 /**
- * Find an "Open <name>" card link by exact aria-label match. Filters in JS
- * rather than interpolating `name` into a CSS attribute-selector string —
- * names containing a literal `"` (e.g. special-character test data) would
- * otherwise break the selector's quoting and throw a CSS syntax error.
+ * Escape `\` and `"` so a value can be safely interpolated inside a
+ * double-quoted CSS attribute-selector string (CSS string-escaping rules).
  */
-export const cardByOpenLabel = (name) =>
-  cy.get('a[aria-label^="Open "]').filter((_, el) => el.getAttribute('aria-label') === `Open ${name}`);
+const escapeAttrValue = (value) => value.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+
+/**
+ * Find an "Open <name>" card link by exact aria-label match. Escapes the
+ * name before interpolating it into the CSS attribute selector — names
+ * containing a literal `"` (e.g. special-character test data) would
+ * otherwise break the selector's quoting and throw a CSS syntax error.
+ *
+ * Deliberately kept as a single cy.get() (not cy.get().filter()) so it stays
+ * natively retry-able: a `.filter()` chained off a query that currently
+ * matches zero elements throws immediately instead of retrying, which broke
+ * create/delete flows that assert existence right after a DOM update.
+ */
+export const cardByOpenLabel = (name) => cy.get(`a[aria-label="Open ${escapeAttrValue(name)}"]`);
 
 /** Common special characters for boundary/validation tests. */
 export const specialChars = `!@#$%^&*()_+-=[]{}|;':",.<>?/\`~`;
