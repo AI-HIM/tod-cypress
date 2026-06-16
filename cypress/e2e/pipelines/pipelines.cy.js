@@ -1,11 +1,24 @@
 /**
  * @module Pipelines
- * @tags @smoke @regression @crud
+ *
+ * Verified live (2026-06-16):
+ *  - "New Pipeline" is an anchor link a[href="/pipelines/new"] — NOT a modal button.
+ *  - Creation page at /pipelines/new has #pipeline-name (text) and
+ *    #pipeline-description (textarea). The save button is a plain
+ *    <button data-slot="button"> with NO type="submit" attribute — select it
+ *    by its visible text "Save Pipeline", never button[type="submit"].
+ *  - After save, the app redirects to /pipelines where the new card appears as
+ *    a[aria-label="Open <name>"].
+ *  - Delete: button[title="Delete pipeline"] per card → confirm dialog,
+ *    rendered as role="alertdialog" (not a plain role="dialog").
+ *  - There is NO search input on the /pipelines list page.
  */
 
 import { PipelinesPage } from '../../pages/PipelinesPage';
 import { dataFactory } from '../../support/utils/dataFactory';
-import { maxLengthString, SQL_INJECTION, XSS_PROBE } from '../../support/utils/helpers';
+import { unique, maxLengthString, SQL_INJECTION, XSS_PROBE, SELECTORS } from '../../support/utils/helpers';
+
+const CONFIRM_DIALOG = SELECTORS.modal.confirmDialog;
 
 const page = new PipelinesPage();
 
@@ -13,110 +26,144 @@ describe('Pipelines', { tags: ['@smoke', '@regression'] }, () => {
   beforeEach(() => {
     cy.login();
     cy.visit('/pipelines');
+    page.waitUntilReady();
   });
 
   // ─── READ ──────────────────────────────────────────────────────────────────
 
-  context('Read', () => {
-    it('@smoke - should load pipelines page', () => {
-      cy.url().should('include', '/pipelines');
-      cy.get('body').should('be.visible');
+  context('Read - list page', { tags: ['@smoke'] }, () => {
+    it('loads the pipelines page with heading and New Pipeline link', { tags: ['@smoke', '@critical'] }, () => {
+      cy.contains('h1, h2', 'Pipelines').should('be.visible');
+      cy.get('a[href="/pipelines/new"]').should('be.visible');
     });
 
-    it('@sanity - should display New Pipeline button', () => {
-      cy.contains('button', /new pipeline/i).should('be.visible');
+    it('displays at least one existing pipeline card', { tags: ['@smoke'] }, () => {
+      cy.get('a[aria-label^="Open "]').should('have.length.greaterThan', 0);
     });
 
-    it('@regression - should search pipelines', () => {
-      cy.get('[placeholder*="Search"]').clear().type('Pipeline');
-      cy.waitForPageLoad();
-      cy.get('body').should('be.visible');
+    it('shows a delete control for each pipeline card', { tags: ['@regression'] }, () => {
+      cy.get('button[title="Delete pipeline"]').should('have.length.greaterThan', 0);
     });
 
-    it('@regression - should show no results for unmatched search', () => {
-      cy.get('[placeholder*="Search"]').clear().type('ZZZNOMATCHAUTO');
-      cy.waitForPageLoad();
-      cy.get('body').should('be.visible');
+    it('clicking a pipeline card navigates to its detail page', { tags: ['@regression'] }, () => {
+      cy.get('a[aria-label^="Open "]').first().click();
+      cy.url().should('match', /\/pipelines\/[0-9a-f-]{36}$/);
     });
   });
 
   // ─── CREATE ────────────────────────────────────────────────────────────────
 
-  context('Create', () => {
-    it('@smoke - should open New Pipeline modal', () => {
-      cy.contains('button', /new pipeline/i).click();
-      cy.get('[role="dialog"]').should('be.visible');
+  context('Create - New Pipeline (full-page form)', { tags: ['@crud', '@create'] }, () => {
+    it('navigates to the create form via the New Pipeline link', { tags: ['@smoke'] }, () => {
+      page.clickNewPipeline();
+      cy.contains('h1, h2', 'New Pipeline').should('be.visible');
+      cy.get('#pipeline-name').should('be.visible');
     });
 
-    it('@critical - should create pipeline with name and description', () => {
+    it('creates a pipeline with name and description, then deletes it', { tags: ['@smoke', '@critical'] }, () => {
       const pipeline = dataFactory.pipeline();
-      cy.contains('button', /new pipeline/i).click();
-      cy.get('#pipeline-name').should('be.visible').clear().type(pipeline.name);
-      cy.get('#pipeline-description').clear().type(pipeline.description);
-      cy.contains('button', /save|create/i).click();
-      cy.get('body').should('contain.text', pipeline.name);
+      page.createPipeline(pipeline.name, pipeline.description);
+      page.assertPipelineExists(pipeline.name);
+
+      page.deletePipeline(pipeline.name);
+      page.assertPipelineNotExists(pipeline.name);
     });
 
-    it('@regression - should create pipeline with name only', () => {
-      const pipeline = dataFactory.pipeline();
-      cy.contains('button', /new pipeline/i).click();
-      cy.get('#pipeline-name').should('be.visible').clear().type(pipeline.name);
-      cy.contains('button', /save|create/i).click();
-      cy.get('body').should('contain.text', pipeline.name);
+    it('creates a pipeline with name only (description optional), then deletes it', { tags: ['@regression'] }, () => {
+      const name = unique('PIP');
+      page.createPipeline(name);
+      page.assertPipelineExists(name);
+
+      page.deletePipeline(name);
+      page.assertPipelineNotExists(name);
     });
 
-    it('@regression - should not create pipeline with empty name', () => {
-      cy.contains('button', /new pipeline/i).click();
-      cy.contains('button', /save|create/i).click();
-      cy.get('[role="dialog"]').should('be.visible');
+    it('stores special characters literally in the pipeline name, then deletes it', { tags: ['@regression'] }, () => {
+      const name = `${unique('PIP')} & Co. #1`;
+      page.createPipeline(name);
+      page.assertPipelineExists(name);
+
+      page.deletePipeline(name);
+      page.assertPipelineNotExists(name);
     });
 
-    it('@regression - should handle max length pipeline name', () => {
-      cy.contains('button', /new pipeline/i).click();
-      cy.get('#pipeline-name').clear().type(maxLengthString(100));
-      cy.contains('button', /save|create/i).click();
-      cy.get('body').should('be.visible');
+    it('treats an SQL-injection probe as literal text, then deletes it', { tags: ['@regression', '@security'] }, () => {
+      const name = `${unique('PIP')} ${SQL_INJECTION}`;
+      page.createPipeline(name);
+      page.assertPipelineExists(name);
+
+      page.deletePipeline(name);
+      page.assertPipelineNotExists(name);
     });
 
-    it('@regression - should reject SQL injection in pipeline name', () => {
-      cy.contains('button', /new pipeline/i).click();
-      cy.get('#pipeline-name').clear().type(SQL_INJECTION);
-      cy.contains('button', /save|create/i).click();
-      cy.get('body').should('be.visible');
+    it('treats an XSS probe as literal text (no script execution), then deletes it', { tags: ['@regression', '@security'] }, () => {
+      const name = `${unique('PIP')} ${XSS_PROBE}`;
+      cy.on('window:alert', () => { throw new Error('XSS payload executed'); });
+      page.createPipeline(name);
+      page.assertPipelineExists(name);
+
+      page.deletePipeline(name);
+      page.assertPipelineNotExists(name);
     });
 
-    it('@regression - should reject XSS in pipeline name', () => {
-      cy.contains('button', /new pipeline/i).click();
-      cy.get('#pipeline-name').clear().type(XSS_PROBE);
-      cy.contains('button', /save|create/i).click();
-      cy.get('body').should('be.visible');
+    it('accepts a max-length (100 char) name, then deletes it', { tags: ['@regression', '@boundary'] }, () => {
+      const name = `${unique('PIP')}_${maxLengthString(100 - 12)}`;
+      page.createPipeline(name);
+      page.assertPipelineExists(name);
+
+      page.deletePipeline(name);
+      page.assertPipelineNotExists(name);
     });
   });
 
-  // ─── MODAL UX ─────────────────────────────────────────────────────────────
+  // ─── VALIDATION ────────────────────────────────────────────────────────────
 
-  context('Modal UX', () => {
-    it('@regression - should close modal on Cancel', () => {
-      cy.contains('button', /new pipeline/i).click();
-      cy.get('[role="dialog"]').should('be.visible');
-      cy.contains('button', /cancel/i).click();
-      cy.get('#pipeline-name').should('not.exist');
+  context('Validation - create form', { tags: ['@validation', '@negative'] }, () => {
+    it('stays on the create page when name is empty', { tags: ['@regression'] }, () => {
+      cy.visit('/pipelines/new');
+      cy.contains('h1, h2', 'New Pipeline').should('be.visible');
+      cy.get('#pipeline-name').should('be.visible').and('have.value', '');
+      cy.contains('button', 'Save Pipeline').click();
+      // Without a name the form should not redirect
+      cy.url().should('include', '/pipelines/new');
     });
   });
 
-  // ─── DELETE / UPDATE (when applicable) ────────────────────────────────────
+  // ─── DELETE ────────────────────────────────────────────────────────────────
 
-  context('Pipeline Detail', () => {
-    it('@regression - should be able to click on a pipeline to view details', () => {
-      cy.get('body').then(($body) => {
-        const hasPipelines = $body.find('table tbody tr, [data-pipeline], li').length > 0;
-        if (hasPipelines) {
-          cy.get('table tbody tr, [data-pipeline], li').first().click();
-          cy.get('body').should('be.visible');
-        } else {
-          cy.log('No pipelines found to click');
-        }
-      });
+  context('Delete - confirm dialog', { tags: ['@crud', '@delete'] }, () => {
+    it('removes a pipeline after confirming the delete dialog', { tags: ['@critical'] }, () => {
+      const name = unique('PIP');
+      page.createPipeline(name);
+      page.assertPipelineExists(name);
+
+      page.deletePipeline(name);
+      page.assertPipelineNotExists(name);
+    });
+
+    it('keeps the pipeline when the delete dialog is cancelled, then cleans up', { tags: ['@regression'] }, () => {
+      const name = unique('PIP');
+      page.createPipeline(name);
+      page.assertPipelineExists(name);
+
+      // Open the delete dialog and cancel
+      // scrollIntoView() first — the list container scrolls and can clip the card.
+      page.pipelineCardFor(name)
+        .scrollIntoView()
+        .parent()
+        .find('button[title="Delete pipeline"]')
+        .should('be.visible')
+        .click();
+      // Renders as role="alertdialog", not a plain dialog (confirmed live).
+      cy.get(CONFIRM_DIALOG).should('be.visible').contains('button', /cancel/i).click();
+
+      // Pipeline should still exist
+      cy.get(CONFIRM_DIALOG).should('not.exist');
+      page.assertPipelineExists(name);
+
+      // Cleanup
+      page.deletePipeline(name);
+      page.assertPipelineNotExists(name);
     });
   });
 });

@@ -1,6 +1,6 @@
 import { SELECTORS } from '../../support/utils/helpers';
 
-const M = SELECTORS.modals;
+const M = SELECTORS.modal;
 
 export class Modal {
   waitForVisible(headingText) {
@@ -23,15 +23,12 @@ export class Modal {
   }
 
   cancel() {
-    cy.get('body').then(($body) => {
-      if ($body.find('button:contains("Cancel")').length) {
-        cy.contains('button', 'Cancel').click();
-      } else {
-        cy.get('[aria-label="Close"], [aria-label="Dismiss"], button[title="Close"]')
-          .first()
-          .click();
-      }
+    // Prefer the explicit Cancel button; fall back to the Radix close trigger (×).
+    // Both are always present in TOD dialogs — no conditional needed.
+    cy.get('[role="dialog"]').within(() => {
+      cy.get('button:contains("Cancel"), [data-slot="dialog-close"]').first().click({ force: true });
     });
+    cy.get('[role="dialog"]').should('not.exist');
     return this;
   }
 

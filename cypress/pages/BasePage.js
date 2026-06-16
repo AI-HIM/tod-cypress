@@ -11,9 +11,10 @@ export class BasePage {
     return this;
   }
 
+  /** @abstract Subclasses must override with a page-specific element assertion. */
   waitUntilReady() {
-    cy.get('body').should('be.visible');
     cy.url().should('not.include', '/login');
+    cy.document().its('readyState').should('eq', 'complete');
     return this;
   }
 
@@ -50,7 +51,7 @@ export class BasePage {
   }
 
   assertSuccessToast(text) {
-    const sel = SELECTORS.toast.any;
+    const sel = SELECTORS.toast.success;
     if (text) {
       cy.contains(sel, text, { timeout: 10000 }).should('be.visible');
     } else {

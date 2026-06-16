@@ -1,75 +1,106 @@
 /**
  * @module Settings - Members
- * @tags @smoke @regression @role-based
+ *
+ * Verified live (2026-06-15):
+ *  - Page heading: "Members"
+ *  - Table headers: Member, Role, Reports To, Joined, Actions
+ *  - "Invite Member" button always present.
+ *  - Invite Member dialog fields: #invite-email (email), #invite-name (text),
+ *    [data-slot="select-trigger"] for Role (first) and Manager (second).
+ *  - Per-row buttons: button[title="Edit"], button[title="Remove"].
+ *  - The current logged-in user's email is visible in the members table.
  */
 
 describe('Settings - Members', { tags: ['@smoke', '@regression'] }, () => {
   beforeEach(() => {
     cy.login();
     cy.visit('/settings/members');
+    cy.contains('h1, h2, h3', 'Members', { timeout: 15000 }).should('be.visible');
   });
 
-  context('Read', () => {
-    it('@smoke - should load members page', () => {
+  // ─── READ ──────────────────────────────────────────────────────────────────
+
+  context('Read', { tags: ['@smoke'] }, () => {
+    it('loads the Members page with the correct heading', { tags: ['@smoke', '@critical'] }, () => {
       cy.url().should('include', '/settings/members');
-      cy.get('body').should('be.visible');
+      cy.contains('h1, h2, h3', 'Members').should('be.visible');
     });
 
-    it('@sanity - should display members list or empty state', () => {
-      cy.get('body').should('be.visible');
+    it('displays the correct table headers', { tags: ['@smoke'] }, () => {
+      const headers = ['Member', 'Role', 'Reports To', 'Joined', 'Actions'];
+      headers.forEach((h) => cy.get('table thead').should('contain.text', h));
     });
 
-    it('@regression - should display current user in members list', () => {
-      cy.get('body').should('contain.text', Cypress.env('USER_EMAIL'));
+    it('shows at least one member row', { tags: ['@smoke'] }, () => {
+      cy.get('table tbody tr').should('have.length.greaterThan', 0);
     });
 
-    it('@regression - should search members if search is available', () => {
-      cy.get('body').then(($body) => {
-        if ($body.find('[placeholder*="Search"]').length) {
-          cy.get('[placeholder*="Search"]').clear().type('auto');
-          cy.waitForPageLoad();
-          cy.get('body').should('be.visible');
-        } else {
-          cy.log('No search on members page');
-        }
-      });
+    it('shows the current logged-in user in the members list', { tags: ['@regression'] }, () => {
+      cy.get('table tbody').should('contain.text', Cypress.env('USER_EMAIL'));
+    });
+
+    it('shows Edit and Remove controls per member row', { tags: ['@regression'] }, () => {
+      cy.get('button[title="Edit"]').should('have.length.greaterThan', 0);
+      cy.get('button[title="Remove"]').should('have.length.greaterThan', 0);
     });
   });
 
-  context('Invite Member', () => {
-    it('@regression - should show invite option if available', () => {
-      cy.get('body').then(($body) => {
-        const hasInvite = $body.find('button').toArray().some((btn) =>
-          /invite/i.test(btn.textContent)
-        );
-        if (hasInvite) {
-          cy.contains('button', /invite/i).should('be.visible');
-        } else {
-          cy.log('No invite button found — may require admin role');
-        }
-      });
+  // ─── INVITE MEMBER ─────────────────────────────────────────────────────────
+
+  context('Invite Member', { tags: ['@crud', '@create'] }, () => {
+    it('shows the Invite Member button', { tags: ['@smoke'] }, () => {
+      cy.contains('button', 'Invite Member').should('be.visible');
     });
 
-    it('@regression - should validate email when inviting member', () => {
-      cy.get('body').then(($body) => {
-        const hasInvite = $body.find('button').toArray().some((btn) =>
-          /invite/i.test(btn.textContent)
-        );
-        if (hasInvite) {
-          cy.contains('button', /invite/i).click();
-          cy.get('[type="email"], [placeholder*="email"]').last().clear().type('invalid-email');
-          cy.contains('button', /send|invite/i).last().click();
-          cy.get('body').should('be.visible');
-        } else {
-          cy.log('No invite flow to test');
-        }
-      });
+    it('opens the Invite Member dialog with correct fields', { tags: ['@smoke'] }, () => {
+      cy.contains('button', 'Invite Member').click();
+      cy.get('[role="dialog"]').should('be.visible');
+      cy.contains('[role="dialog"]', 'Invite Member').should('be.visible');
+      cy.get('#invite-email').should('be.visible');
+      cy.get('#invite-name').should('be.visible');
+      cy.get('[data-slot="select-trigger"]').first().should('be.visible');
+    });
+
+    it('validates email format — rejects a malformed email', { tags: ['@regression', '@validation'] }, () => {
+      cy.contains('button', 'Invite Member').click();
+      cy.get('#invite-email').should('be.visible').type('not-an-email');
+      cy.get('#invite-name').type('Test User');
+      cy.contains('[role="dialog"] button', 'Invite Member').click();
+      // Should stay in dialog with a validation error
+      cy.get('[role="dialog"]').should('be.visible');
+    });
+
+    it('validates required fields — rejects empty email', { tags: ['@regression', '@validation'] }, () => {
+      cy.contains('button', 'Invite Member').click();
+      cy.get('#invite-name').type('Test User');
+      cy.contains('[role="dialog"] button', 'Invite Member').click();
+      cy.get('[role="dialog"]').should('be.visible');
+    });
+
+    it('closes the Invite Member dialog via Cancel', { tags: ['@regression'] }, () => {
+      cy.contains('button', 'Invite Member').click();
+      cy.get('[role="dialog"]').should('be.visible');
+      cy.contains('[role="dialog"] button', 'Cancel').click();
+      cy.get('[role="dialog"]').should('not.exist');
+    });
+
+    it('closes the Invite Member dialog via the × button', { tags: ['@regression'] }, () => {
+      cy.contains('button', 'Invite Member').click();
+      cy.get('[role="dialog"]').should('be.visible');
+      cy.get('[data-slot="dialog-close"]').click();
+      cy.get('[role="dialog"]').should('not.exist');
     });
   });
 
-  context('Role-Based', () => {
-    it('@regression - should display member roles', () => {
-      cy.get('body').should('be.visible');
+  // ─── ROLE-BASED ────────────────────────────────────────────────────────────
+
+  context('Role-Based', { tags: ['@regression'] }, () => {
+    it('shows role badges for each member', { tags: ['@regression'] }, () => {
+      // Scoped to the members table — an unscoped check could pass on an
+      // unrelated badge elsewhere on the page without verifying anything.
+      cy.get('table tbody tr').then(($rows) => {
+        cy.get('table tbody [data-slot="badge"]').should('have.length', $rows.length);
+      });
     });
   });
 });

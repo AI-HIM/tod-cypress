@@ -24,11 +24,13 @@ export class DashboardPage extends BasePage {
     return this;
   }
 
-  /** Assert the personalized greeting (Good morning/afternoon, Sowmya). */
+  /**
+   * Assert the personalized greeting without hardcoding a user name.
+   * The greeting format is "Good morning/afternoon/evening, <Name>".
+   * We match only the time-of-day part so this works for any logged-in user.
+   */
   assertGreeting() {
-    cy.contains(/good (morning|afternoon|evening), sowmya/i, { timeout: 15000 }).should(
-      'be.visible'
-    );
+    cy.contains(S.greetingPattern, { timeout: 15000 }).should('be.visible');
     return this;
   }
 

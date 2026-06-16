@@ -19,12 +19,17 @@ const testEnv = process.env.TEST_ENV || 'dev';
 const userEmail = process.env.USER_EMAIL || process.env.CYPRESS_USER_EMAIL;
 const userPassword = process.env.USER_PASSWORD || process.env.CYPRESS_USER_PASSWORD;
 
+// Optional: second test account for RBAC enforcement tests (Layer 2).
+// Not required — tests skip gracefully when these are absent.
+const restrictedUserEmail = process.env.RESTRICTED_USER_EMAIL || process.env.CYPRESS_RESTRICTED_USER_EMAIL;
+const restrictedUserPassword = process.env.RESTRICTED_USER_PASSWORD || process.env.CYPRESS_RESTRICTED_USER_PASSWORD;
+
 module.exports = defineConfig({
   projectId: 'irc68t',
   e2e: {
     baseUrl: process.env.BASE_URL || ENV_URLS[testEnv] || ENV_URLS.dev,
     specPattern: 'cypress/e2e/**/*.cy.js',
-    excludeSpecPattern: ['cypress/e2e/_discovery/**'],
+    excludeSpecPattern: ['cypress/e2e/_discovery/**', 'cypress/e2e/_probe.cy.js'],
     supportFile: 'cypress/support/e2e.js',
     fixturesFolder: 'cypress/fixtures',
 
@@ -69,6 +74,8 @@ module.exports = defineConfig({
       USER_PASSWORD: userPassword,
       INVALID_EMAIL: 'invalid@test.com',
       INVALID_PASSWORD: 'WrongPassword123',
+      RESTRICTED_USER_EMAIL: restrictedUserEmail || '',
+      RESTRICTED_USER_PASSWORD: restrictedUserPassword || '',
       grepFilterSpecs: true,
       grepOmitFiltered: true,
     },
@@ -84,7 +91,7 @@ module.exports = defineConfig({
         );
       }
 
-      require('@cypress/grep/src/plugin')(config);
+      config = require('@cypress/grep/src/plugin')(config);
       require('cypress-mochawesome-reporter/plugin')(on);
 
       on('before:run', async (details) => {

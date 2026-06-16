@@ -12,6 +12,15 @@
  *
  * Every create test cleans up after itself via a real Delete so this shared dev
  * environment is not polluted.
+ *
+ * KNOWN LIVE APP DEFECT (confirmed live 2026-06-16): cancelling the "Delete BU"
+ * confirm dialog leaves `<body>` with an inline `pointer-events: none` style
+ * that never clears — confirmed via direct polling immediately after the
+ * Cancel click (present at t+0ms and still present 6+ seconds later), which
+ * permanently blocks all further mouse interaction with the page. This is a
+ * bug in the app's Radix dialog-close cleanup, not in this test suite — the
+ * "keeps the BU when the delete dialog is cancelled" test below asserts on
+ * this directly so it fails clearly; do not weaken it to force a pass.
  */
 
 import { JobsPage } from '../../pages/JobsPage';
@@ -181,11 +190,14 @@ describe('Jobs - Business Units', { tags: ['@regression'] }, () => {
       jobs.searchBU(name);
       jobs.assertBUExists(name);
       cy.get('[aria-label="More"]').first().click();
-      cy.contains('[role="menuitem"]', /^Delete BU$/).should('be.visible').click();
+      cy.contains('[role="menu"] [role="menuitem"]', /^Delete BU$/).should('be.visible').click();
 
       // Confirm dialog appears with the BU name in its title.
       cy.get('[role="dialog"]').should('be.visible').and('contain.text', `Delete BU "${name}"?`);
-      cy.contains('[role="dialog"] button', /^Delete BU$/).click();
+      // scrollIntoView() — a long name can wrap the title and push the confirm
+      // button out of the visible area (same clipping class of issue as the
+      // Pipelines delete flow).
+      cy.contains('[role="dialog"] button', /^Delete BU$/).scrollIntoView().click();
 
       jobs.assertDeleteSuccess(name);
       jobs.assertBUNotExists(name);
@@ -199,13 +211,19 @@ describe('Jobs - Business Units', { tags: ['@regression'] }, () => {
       jobs.searchBU(name);
       jobs.assertBUExists(name);
       cy.get('[aria-label="More"]').first().click();
-      cy.contains('[role="menuitem"]', /^Delete BU$/).should('be.visible').click();
+      cy.contains('[role="menu"] [role="menuitem"]', /^Delete BU$/).should('be.visible').click();
       cy.get('[role="dialog"]').should('be.visible');
       cy.contains('[role="dialog"] button', /^Cancel$/).click();
 
       // Cancelled — the BU must still exist.
       cy.get('[role="dialog"]').should('not.exist');
       jobs.assertBUExists(name);
+
+      // KNOWN LIVE APP DEFECT (see module JSDoc above): cancelling leaves
+      // `<body>` permanently pointer-events:none. Assert on it directly here
+      // so a regression fails with a clear message instead of a confusing
+      // cy.clear() actionability error deep inside the cleanup step below.
+      cy.get('body').should('not.have.css', 'pointer-events', 'none');
 
       // Real cleanup so we don't pollute the shared env.
       jobs.deleteBU(name);

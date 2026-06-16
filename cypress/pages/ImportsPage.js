@@ -2,7 +2,7 @@ import { BasePage } from './BasePage';
 import { SELECTORS } from '../support/utils/helpers';
 
 const S = SELECTORS.imports;
-const M = SELECTORS.modals;
+const M = SELECTORS.modal;
 
 export class ImportsPage extends BasePage {
   constructor() {
@@ -11,7 +11,14 @@ export class ImportsPage extends BasePage {
 
   waitUntilReady() {
     cy.url().should('include', '/talent-base/imports');
-    cy.get('body').should('be.visible');
+    cy.get('table thead', { timeout: 15000 }).should('be.visible');
+    return this;
+  }
+
+  assertTableHeadersVisible() {
+    S.tableHeaders.forEach((header) => {
+      cy.get('table thead').should('contain.text', header);
+    });
     return this;
   }
 
@@ -21,8 +28,15 @@ export class ImportsPage extends BasePage {
     return this;
   }
 
+  clearSearch() {
+    cy.get(S.searchInput).clear();
+    cy.waitForPageLoad();
+    return this;
+  }
+
   clickNewImport() {
     cy.get(S.newImportBtn).should('be.visible').click();
+    cy.get(M.dialog).should('be.visible');
     return this;
   }
 
@@ -42,17 +56,17 @@ export class ImportsPage extends BasePage {
   }
 
   submit() {
-    cy.contains('button', /save|create|import/i).click();
+    cy.contains(`${M.dialog} button`, /save|create|next|import/i).click();
     return this;
   }
 
   cancel() {
-    cy.contains('button', /cancel/i).click();
+    cy.contains(`${M.dialog} button`, /cancel/i).click();
     return this;
   }
 
   assertImportVisible(name) {
-    cy.get('body').should('contain.text', name);
+    cy.get('table tbody').should('contain.text', name);
     return this;
   }
 

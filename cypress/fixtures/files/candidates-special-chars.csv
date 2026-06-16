@@ -1,0 +1,4 @@
+first_name,last_name,email,phone,title,location,experience_years
+"O'Brien","García-López","o.brien@test.com","","QA & Test Lead","São Paulo, Brazil",3
+"<script>alert(1)</script>","XSS","xss@test.com","","Title","Location",0
+"A'B","C""D","valid@email.com","1234567890","Engineer","City",5

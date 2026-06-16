@@ -28,7 +28,11 @@ export class MergeRequestsPage extends BasePage {
 
   // A request-item link is one whose href ends in a UUID.
   static REQUEST_LINK = 'a[href*="/talent-base/merge-requests/"]';
-  static UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  static UUID_PATTERN = '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}';
+  static UUID_RE = new RegExp(`^${MergeRequestsPage.UUID_PATTERN}$`, 'i');
+  // Matches the detail-page pathname, reusing the same UUID_PATTERN so the
+  // list-filter check and the detail-page route check can never drift apart.
+  static DETAIL_PATH_RE = new RegExp(`/talent-base/merge-requests/${MergeRequestsPage.UUID_PATTERN}$`, 'i');
 
   waitUntilReady() {
     cy.url().should('include', '/talent-base/merge-requests');
@@ -59,14 +63,14 @@ export class MergeRequestsPage extends BasePage {
   /** Open the first request and land on its detail route. */
   openFirstRequest() {
     this.requestItems().first().click();
-    cy.location('pathname').should('match', /\/talent-base\/merge-requests\/[0-9a-f-]{36}$/);
+    cy.location('pathname').should('match', MergeRequestsPage.DETAIL_PATH_RE);
     return this;
   }
 
   // ─── Detail page ──────────────────────────────────────────────────────────
 
   assertOnDetailPage() {
-    cy.location('pathname').should('match', /\/talent-base\/merge-requests\/[0-9a-f-]{36}$/);
+    cy.location('pathname').should('match', MergeRequestsPage.DETAIL_PATH_RE);
     return this;
   }
 

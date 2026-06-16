@@ -1,6 +1,7 @@
 import './commands';
 import 'cypress-mochawesome-reporter/register';
-import '@cypress/grep';
+import registerCypressGrep from '@cypress/grep/src/support';
+registerCypressGrep();
 
 Cypress.on('uncaught:exception', (err) => {
   // Next.js throws NEXT_REDIRECT internally for server-side redirects — not an app error.

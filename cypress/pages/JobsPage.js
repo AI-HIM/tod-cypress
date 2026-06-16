@@ -1,5 +1,5 @@
 import { BasePage } from './BasePage';
-import { SELECTORS } from '../support/utils/helpers';
+import { SELECTORS, cardByOpenLabel } from '../support/utils/helpers';
 
 const S = SELECTORS.jobs;
 const M = SELECTORS.modal;
@@ -31,7 +31,7 @@ export class JobsPage extends BasePage {
   // ─── Locators ───────────────────────────────────────────────────────────────
 
   buCardFor(name) {
-    return cy.get(`a[aria-label="Open ${name}"]`);
+    return cardByOpenLabel(name);
   }
 
   // ─── Business Unit – list / search ──────────────────────────────────────────
@@ -102,10 +102,15 @@ export class JobsPage extends BasePage {
     this.searchBU(name);
     this.buCardFor(name).should('exist');
     cy.get(S.rowMoreBtn).first().click();
-    cy.contains(SELECTORS.sidebar.menuItem, /^Delete BU$/).should('be.visible').click();
+    // Scoped to [role="menu"] (the currently open dropdown's container) so this
+    // can't match a stray menuitem from a different, already-rendered dropdown.
+    cy.contains('[role="menu"] [role="menuitem"]', /^Delete BU$/).should('be.visible').click();
     cy.get(M.dialog).should('be.visible');
     cy.contains(M.title, new RegExp(`Delete BU`, 'i')).should('be.visible');
-    cy.contains(`${M.dialog} button`, /^Delete BU$/).click();
+    // A long BU name wraps the dialog title onto extra lines, which can push
+    // the confirm button out of the visible area — scrollIntoView() first
+    // (same clipping class of issue as PipelinesPage.deletePipeline()).
+    cy.contains(`${M.dialog} button`, /^Delete BU$/).scrollIntoView().click();
     return this;
   }
 

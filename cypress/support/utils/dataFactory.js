@@ -10,7 +10,7 @@ export const dataFactory = {
     return {
       fullName: `${first} ${last}`,
       email: faker.internet.email({ firstName: first, lastName: last }).toLowerCase(),
-      phone: faker.phone.number('##########'),
+      phone: faker.string.numeric(10),
       title: faker.person.jobTitle(),
       location: `${faker.location.city()}, ${faker.location.country()}`,
       experienceYears: faker.number.int({ min: 0, max: 20 }),

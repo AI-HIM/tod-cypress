@@ -1,0 +1,701 @@
+{
+  "heading": [
+    {
+      "tag": "H2",
+      "text": "Create Role"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "role-name",
+      "name": "",
+      "placeholder": "e.g. Vendor Recruiter",
+      "data-slot": "input"
+    }
+  ],
+  "textareas": [
+    {
+      "id": "role-description",
+      "name": "",
+      "placeholder": "Describe what this role is for..."
+    }
+  ],
+  "checkboxes": [],
+  "switches": [
+    {
+      "role": "checkbox",
+      "id": "is-vendor",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    },
+    {
+      "role": "checkbox",
+      "id": "",
+      "aria-label": null,
+      "aria-checked": "false",
+      "data-slot": "checkbox",
+      "text": ""
+    }
+  ],
+  "buttons": [
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "View",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Create",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Edit",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Delete",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Import",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Export",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Merge",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "View",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "View",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Create",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Edit",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Delete",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Manage Pipeline",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Manage Config",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Manage Career Site",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "View",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Create",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Edit",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Delete",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Manage Vendors",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Manage Managers",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "View",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Create",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Edit",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Delete",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "View",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Create",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Edit",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Delete",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "View",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Create",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Edit",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Delete",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Trigger Call",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Manage Assessment",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "View Recordings",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Manage Config",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "View",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Create",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "JD Architect",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Sourcing Scout",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "View",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Create",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Promote",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "View",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Create",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "View",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Create",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Edit",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Delete",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Share",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "View",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Create",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Edit",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Delete",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "View",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Create",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Delete",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "View",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Manage",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "View",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Manage",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "API Keys",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Manage Roles",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "View",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Invite",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Edit",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Remove",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "View",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Adoption Metrics",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "",
+      "type": "button",
+      "data-slot": "checkbox"
+    },
+    {
+      "text": "Submit",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "View",
+      "type": "button",
+      "data-slot": null
+    },
+    {
+      "text": "Cancel",
+      "type": "submit",
+      "data-slot": "button"
+    },
+    {
+      "text": "Create Role",
+      "type": "submit",
+      "data-slot": "button"
+    },
+    {
+      "text": "Close",
+      "type": "button",
+      "data-slot": "dialog-close"
+    }
+  ],
+  "labels": [
+    {
+      "for": "role-name",
+      "text": "Name"
+    },
+    {
+      "for": "role-description",
+      "text": "Description (optional)"
+    },
+    {
+      "for": "is-vendor",
+      "text": "Vendor Role"
+    },
+    {
+      "for": null,
+      "text": "Permissions"
+    }
+  ],
+  "permissionSections": [
+    "Create Role",
+    "Name",
+    "Description (optional)",
+    "Vendor Role",
+    "Permissions"
+  ]
+}

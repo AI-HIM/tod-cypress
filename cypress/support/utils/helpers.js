@@ -31,7 +31,7 @@ export const ROUTES = {
 // ─── Selectors ────────────────────────────────────────────────────────────────
 // Verified against the live DOM (discovery spec, 2026-06-15). The TOD SPA is built
 // with Radix UI and exposes almost no data-testid attributes; stable hooks are
-// element ids (settings/login + modal forms), title attributes on icon buttons,
+// element ids (settings/login + form pages), title attributes on icon buttons,
 // data-slot attributes, ARIA roles/labels, and href values.
 
 export const SELECTORS = {
@@ -68,9 +68,15 @@ export const SELECTORS = {
     dialog: '[role="dialog"]',
     title: '[data-slot="dialog-title"]',
     closeBtn: '[data-slot="dialog-close"]',
+    // Destructive confirmations (e.g. pipeline delete) render as an ARIA
+    // alertdialog, not a plain dialog — confirmed live (2026-06-16). Matches
+    // both so it works whether a given confirmation has been migrated or not.
+    confirmDialog: '[role="dialog"], [role="alertdialog"]',
   },
 
   dashboard: {
+    // Greeting matches "Good morning/afternoon/evening, <Name>" dynamically.
+    greetingPattern: /good (morning|afternoon|evening)/i,
     chart: '[data-slot="chart"]',
     needsAttention: 'Needs Attention',
   },
@@ -80,45 +86,83 @@ export const SELECTORS = {
     searchInput: '[placeholder="Search business units"]',
     newBuBtn: 'button[title="New BU"]',
     newJobBtn: 'button[title="New Job"]',
-    gridToggle: 'button:contains("Grid")',
-    listToggle: 'button:contains("List")',
     buCard: 'a[aria-label^="Open "]',
     rowMoreBtn: '[aria-label="More"]',
-    // New Business Unit dialog
+    // New Business Unit dialog fields (verified live).
     buNameInput: '#bu-name',
     buDescriptionInput: '#bu-description',
     createBuBtn: 'button:contains("Create BU")',
   },
 
+  // Pipelines list page (/pipelines).
+  // "New Pipeline" is a LINK that navigates to a full-page form — not a modal.
   pipelines: {
     heading: 'Pipelines',
-    // "New Pipeline" is a link to a full-page form, not a modal.
     newPipelineLink: 'a[href="/pipelines/new"]',
     card: 'a[aria-label^="Open "]',
     deleteBtn: 'button[title="Delete pipeline"]',
   },
 
+  // Pipeline creation form (full page at /pipelines/new, not a modal).
+  // Same caveat as templateForm/folderForm — the save button has no
+  // type="submit" attribute (confirmed live); select it by visible text.
+  // Confirmed live (2026-06-16): saving requires at least one stage, and
+  // every stage requires a name — "Save Pipeline" rejects with a toast
+  // ("Please add at least one stage" / "Please name stage N") otherwise.
+  pipelineForm: {
+    nameInput: '#pipeline-name',
+    descriptionInput: '#pipeline-description',
+    saveBtn: 'button:contains("Save Pipeline")',
+    addStageBtn: 'button:contains("Add Stage")',
+    stageNameInput: 'input[placeholder="Stage name"]',
+  },
+
+  // Templates list page (/templates).
+  // "New Template" and "New Folder" are LINKS to full-page forms — not modals.
   templates: {
     heading: 'Message Templates',
     searchInput: '[placeholder="Search templates and folders..."]',
     newTemplateLink: 'a[href="/templates/new"]',
     newFolderLink: 'a[href="/templates/folders/new"]',
+    card: 'a[href^="/templates/"]:not([href="/templates/new"])',
+    folderCard: 'a[href^="/templates/folders/"]:not([href="/templates/folders/new"])',
     deleteFolderBtn: 'button[title="Delete folder"]',
-    syncWhatsappBtn: 'button:contains("Sync WhatsApp")',
+    syncWhatsappBtn: 'button[title="Pull approved WhatsApp templates from icpaas"]',
+  },
+
+  // Template creation form (full page at /templates/new, not a modal).
+  // The save button is a plain <button data-slot="button"> with NO type
+  // attribute (confirmed live) — select by visible text, not button[type=submit].
+  templateForm: {
+    nameInput: '#template-name',
+    descriptionInput: '#template-description',
+    subjectInput: '#template-subject',
+    bodyTextarea: 'textarea[placeholder*="Write your message template"]',
+    saveBtn: 'button:contains("Save Template")',
+  },
+
+  // Folder creation form (full page at /templates/folders/new, not a modal).
+  // Same as templateForm.saveBtn — no type="submit" attribute on the button.
+  folderForm: {
+    nameInput: '#folder-name',
+    descriptionInput: '#folder-description',
+    saveBtn: 'button:contains("Create Folder")',
   },
 
   candidates: {
-    // The candidates page has no h1/h2; identify it by its table headers + URL.
     tableHeaders: ['Candidate Name', 'Email', 'Phone', 'Title', 'Location', 'Experience', 'Added'],
     searchInput: '[placeholder="Search"]',
     addCandidateBtn: 'button[title="Add a candidate"]',
     refreshBtn: 'button[title="Refresh"]',
     rowCheckbox: 'input[type="checkbox"][aria-label^="Select "]',
-    // Add Candidate dialog (resume-upload flow — no name/email text fields)
+    filterBtn: 'button[data-slot="popover-trigger"]:contains("No filters")',
+    dateFilterBtn: 'button[data-slot="popover-trigger"]:contains("Created Date")',
+    // Add Candidate dialog — resume-upload flow only (no name/email/phone text inputs).
     resumeInput: '[role="dialog"] input[type="file"]',
     searchJobsInput: '[placeholder="Search jobs..."]',
     searchBucketsInput: '[placeholder="Search buckets..."]',
-    submitBtn: '[role="dialog"] button:contains("Add Candidate")',
+    submitBtn: '[role="dialog"] button[data-slot="button"]:contains("Add Candidate")',
+    cancelBtn: '[role="dialog"] button[data-slot="button"]:contains("Cancel")',
   },
 
   imports: {
@@ -126,6 +170,9 @@ export const SELECTORS = {
     searchInput: '[placeholder="Search"]',
     newImportBtn: 'button[title="New Import"]',
     refreshBtn: 'button[title="Refresh"]',
+    // Import creation dialog fields (verified live).
+    importNameInput: '#import-name-input',
+    importDescriptionInput: '#import-description-input',
   },
 
   mergeRequests: {
@@ -134,12 +181,13 @@ export const SELECTORS = {
   },
 
   settings: {
-    // Profile
+    // Profile — IDs are stable (discovered live).
     nameInput: '#name-input',
     emailInput: '#email-input',
     careerSiteTagline: '#career-site-tagline',
     careerSiteAbout: '#career-site-about',
     careerSiteLogoInput: '#career-site-logo-input',
+    // Save button starts disabled; edit a field to enable it.
     saveBtn: 'button:contains("Save changes")',
     // Sub-nav links
     profileLink: 'a[href="/settings/profile"]',
@@ -151,10 +199,11 @@ export const SELECTORS = {
   buckets: {
     heading: 'Buckets',
     createBucketBtn: 'button:contains("Create Bucket")',
-    // Create Bucket dialog
+    // Create Bucket dialog (verified live).
     nameInput: '#bucket-name',
     descriptionInput: '#bucket-description',
     submitBtn: '[role="dialog"] button:contains("Create")',
+    cancelBtn: '[role="dialog"] button:contains("Cancel")',
   },
 
   members: {
@@ -163,11 +212,12 @@ export const SELECTORS = {
     inviteBtn: 'button:contains("Invite Member")',
     editBtn: 'button[title="Edit"]',
     removeBtn: 'button[title="Remove"]',
-    // Invite Member dialog
+    // Invite Member dialog (verified live).
     emailInput: '#invite-email',
     nameInput: '#invite-name',
     roleSelect: '[data-slot="select-trigger"]',
-    submitBtn: '[role="dialog"] button:contains("Invite Member")',
+    submitBtn: '[role="dialog"] button[data-slot="button"]:contains("Invite Member")',
+    cancelBtn: '[role="dialog"] button[data-slot="button"]:contains("Cancel")',
   },
 
   roles: {
@@ -221,6 +271,15 @@ export const truncate = (str, maxLen = 50) =>
 /** Build a string of exactly `len` characters. */
 export const maxLengthString = (len = 255) => 'A'.repeat(len);
 
+/**
+ * Find an "Open <name>" card link by exact aria-label match. Filters in JS
+ * rather than interpolating `name` into a CSS attribute-selector string —
+ * names containing a literal `"` (e.g. special-character test data) would
+ * otherwise break the selector's quoting and throw a CSS syntax error.
+ */
+export const cardByOpenLabel = (name) =>
+  cy.get('a[aria-label^="Open "]').filter((_, el) => el.getAttribute('aria-label') === `Open ${name}`);
+
 /** Common special characters for boundary/validation tests. */
 export const specialChars = `!@#$%^&*()_+-=[]{}|;':",.<>?/\`~`;
 
@@ -235,3 +294,29 @@ export const SQL_INJECTION = `' OR '1'='1`;
 
 /** XSS probe */
 export const XSS_PROBE = `<script>alert('xss')</script>`;
+
+/**
+ * Assert an element matching `selector` is either hidden or entirely absent
+ * from the DOM. Cypress's Chainable has no `.or()` combinator — `.should(x).or(y)`
+ * throws at runtime — so this expresses the OR inside a single retry-able `.should()`.
+ */
+export const assertHiddenOrAbsent = (selector) => {
+  cy.get('body').should(($body) => {
+    const $el = $body.find(selector);
+    expect($el.length === 0 || !$el.is(':visible')).to.be.true;
+  });
+};
+
+/**
+ * Assert a button matching `selector` (optionally filtered by visible text)
+ * is either disabled or entirely absent from the DOM.
+ */
+export const assertDisabledOrAbsent = (selector, text) => {
+  cy.get('body').should(($body) => {
+    const $matches = $body.find(selector);
+    const $el = text
+      ? $matches.filter((_, el) => el.textContent.toLowerCase().includes(text.toLowerCase()))
+      : $matches;
+    expect($el.length === 0 || $el.is(':disabled') || $el.attr('aria-disabled') === 'true').to.be.true;
+  });
+};

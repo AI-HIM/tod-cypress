@@ -1,0 +1,9 @@
+JOHN DOE
+Software QA Engineer
+john.doe@example.com | +91 9876543210
+
+SKILLS
+Cypress · Selenium · Python · JavaScript · SQL
+
+EXPERIENCE
+5 years in test automation at various MNCs

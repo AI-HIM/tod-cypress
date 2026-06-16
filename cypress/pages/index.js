@@ -8,4 +8,4 @@ export { TemplatesPage } from './TemplatesPage';
 export { CandidatesPage } from './CandidatesPage';
 export { ImportsPage } from './ImportsPage';
 export { MergeRequestsPage } from './MergeRequestsPage';
-export { SettingsPage } from './SettingsPage';
+export { RolesPage } from './RolesPage';
