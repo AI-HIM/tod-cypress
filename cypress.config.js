@@ -63,8 +63,8 @@ module.exports = defineConfig({
       reportDir: 'cypress/reports/html',
       overwrite: false,
       html: true,
-      json: true,
-      jsonDir: 'cypress/reports/json',
+      saveJson: true,
+      removeJsonsFolderAfterMerge: false,
     },
 
     env: {

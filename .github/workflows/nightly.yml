@@ -54,9 +54,9 @@ jobs:
       - name: Merge Mochawesome reports
         if: always()
         run: |
-          ls cypress/reports/json/ || true
-          npx mochawesome-merge "cypress/reports/json/*.json" -o cypress/reports/json/merged.json || true
-          npx marge cypress/reports/json/merged.json -f nightly-report-${{ matrix.browser }} -o cypress/reports/html || true
+          ls cypress/reports/html/.jsons/ || true
+          npx mochawesome-merge "cypress/reports/html/.jsons/*.json" -o cypress/reports/html/merged.json || true
+          npx marge cypress/reports/html/merged.json -f nightly-report-${{ matrix.browser }} -o cypress/reports/html || true
 
       - name: Upload HTML report
         if: always()
