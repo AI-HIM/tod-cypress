@@ -41,7 +41,7 @@ export class CandidatesPage extends BasePage {
   }
 
   assertHasCandidates() {
-    cy.get('table tbody tr').should('have.length.greaterThan', 0);
+    cy.get('.border-slate-200 > .flex-1 > .flex > *').should('have.length.greaterThan', 0);
     return this;
   }
 
