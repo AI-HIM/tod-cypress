@@ -1,0 +1,5 @@
+{
+  "labels": "Template Type, Simple Template, Add to Folder, Folder, Template Name, Description (optional), Channel, Subject, Message Body",
+  "buttons": "SD, , S, , Save Template, , , Select a folder..., candidate_name, first_name, company_name, job_title, job_location, salary_range, interview_date, interview_time, office_address, spoc_name, spoc_phone",
+  "selects": "Select a folder..."
+}

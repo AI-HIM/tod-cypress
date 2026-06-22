@@ -65,13 +65,13 @@ export const SELECTORS = {
 
   // Shared Radix dialog/modal conventions.
   modal: {
-    dialog: '[role="dialog"]',
+    dialog: '[role="dialog"], [role="alertdialog"], div[id^="radix-"]',
     title: '[data-slot="dialog-title"]',
     closeBtn: '[data-slot="dialog-close"]',
     // Destructive confirmations (e.g. pipeline delete) render as an ARIA
     // alertdialog, not a plain dialog — confirmed live (2026-06-16). Matches
     // both so it works whether a given confirmation has been migrated or not.
-    confirmDialog: '[role="dialog"], [role="alertdialog"]',
+    confirmDialog: '[role="dialog"], [role="alertdialog"], div[id^="radix-"]',
   },
 
   dashboard: {
@@ -125,8 +125,9 @@ export const SELECTORS = {
     newTemplateLink: 'a[href="/templates/new"]',
     newFolderLink: 'a[href="/templates/folders/new"]',
     card: 'a[href^="/templates/"]:not([href="/templates/new"])',
-    folderCard: 'a[href^="/templates/folders/"]:not([href="/templates/folders/new"])',
+    folderCard: 'div.group[role="button"]:has(a[href^="/templates/folders/"]:not([href="/templates/folders/new"]))',
     deleteFolderBtn: 'button[title="Delete folder"]',
+    deleteTemplateBtn: 'button[title="Delete template"]',
     syncWhatsappBtn: 'button[title="Pull approved WhatsApp templates from icpaas"]',
   },
 
@@ -238,7 +239,7 @@ export const SELECTORS = {
   },
 
   toast: {
-    success: '[data-sonner-toast][data-type="success"], [role="status"]',
+    success: '[data-sonner-toast][data-type="success"], [role="status"], [data-content=""] > div',
     error: '[data-sonner-toast][data-type="error"], [role="alert"]',
     any: '[data-sonner-toast], [role="status"], [role="alert"]',
   },

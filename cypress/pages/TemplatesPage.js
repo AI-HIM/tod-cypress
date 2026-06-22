@@ -64,6 +64,7 @@ export class TemplatesPage extends BasePage {
 
   assertTemplateNotVisible(name) {
     cy.get('body').should('not.contain.text', name);
+    this.clearSearch();
     return this;
   }
 
@@ -74,6 +75,7 @@ export class TemplatesPage extends BasePage {
 
   assertFolderNotVisible(name) {
     cy.get('body').should('not.contain.text', name);
+    this.clearSearch();
     return this;
   }
 
@@ -92,12 +94,27 @@ export class TemplatesPage extends BasePage {
   deleteFolder(name) {
     this.search(name);
     cy.contains(name).should('be.visible');
-    cy.get(S.deleteFolderBtn).should('have.length', 1).click();
+    cy.get(S.deleteFolderBtn).should('have.length', 1).click({ force: true });
 
     // Folder deletion always shows a confirmation dialog (same UX as BU/Pipeline deletion).
     cy.get(M.dialog, { timeout: 10000 }).should('be.visible');
     cy.contains(`${M.dialog} button`, /delete|confirm/i).last().click();
     cy.get(M.dialog).should('not.exist');
+    return this;
+  }
+
+  deleteTemplate(name) {
+    this.search(name);
+    cy.contains(name).should('be.visible');
+    // The template delete button is also likely hidden via hover, so we force click
+    // Scope it to the parent row to avoid finding multiple buttons if search isn't fully exact
+    cy.contains(name).closest('div.group').find(S.deleteTemplateBtn).click({ force: true });
+
+    // Assuming there's a confirmation dialog
+    cy.get(M.dialog, { timeout: 10000 }).should('be.visible');
+    cy.contains(`${M.dialog} button`, /delete|confirm/i).last().click();
+    cy.get(M.dialog).should('not.exist');
+    cy.contains(/(Template|Role) deleted/i, { timeout: 10000 }).should('be.visible');
     return this;
   }
 
@@ -135,12 +152,14 @@ export class TemplatesPage extends BasePage {
   }
 
   /** Full create flow: visit /templates/new, fill required fields, submit. */
-  createTemplate(name, subject, description) {
+  createTemplate(name, subject, body, description) {
     cy.visit('/templates/new');
     this.fillTemplateName(name);
     if (subject) this.fillTemplateSubject(subject);
+    if (body) this.fillTemplateBody(body);
     if (description) this.fillTemplateDescription(description);
     this.saveTemplate();
+    cy.contains(/(Template|Role) created/i, { timeout: 10000 }).should('be.visible');
     // After save, the app redirects back to /templates
     cy.url().should('include', '/templates');
     cy.url().should('not.include', '/new');

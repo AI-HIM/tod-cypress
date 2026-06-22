@@ -46,13 +46,13 @@ export class RolesPage extends BasePage {
 
   /** Assert a role with the given name is visible on the list. */
   assertRoleVisible(name) {
-    cy.get('body').should('contain.text', name);
+    cy.get('.mx-auto > :nth-child(1)').should('contain.text', name);
     return this;
   }
 
   /** Assert a role with the given name is NOT visible on the list. */
   assertRoleNotVisible(name) {
-    cy.get('body').should('not.contain.text', name);
+    cy.get('.mx-auto > :nth-child(1)').should('not.contain.text', name);
     return this;
   }
 
@@ -72,12 +72,9 @@ export class RolesPage extends BasePage {
 
   // ─── Fill role form (works for both Create and Edit dialogs) ─────────────
 
-  /** Fill the role name field. Falls back through likely selectors. */
   fillRoleName(name) {
-    // Try the ID pattern used throughout the app; fall back to first input.
     cy.get(M.dialog).within(() => {
-      cy.get('input[id*="role"], input[id*="name"], [data-slot="input"]')
-        .first()
+      cy.get('input#role-name')
         .should('be.visible')
         .clear()
         .type(name);
@@ -87,16 +84,14 @@ export class RolesPage extends BasePage {
 
   clearRoleName() {
     cy.get(M.dialog).within(() => {
-      cy.get('input[id*="role"], input[id*="name"], [data-slot="input"]')
-        .first()
-        .clear();
+      cy.get('input#role-name').clear();
     });
     return this;
   }
 
   fillRoleDescription(description) {
     cy.get(M.dialog).within(() => {
-      cy.get('textarea, [data-slot="textarea"]').first().clear().type(description);
+      cy.get('textarea#role-description').clear().type(description);
     });
     return this;
   }
@@ -104,41 +99,32 @@ export class RolesPage extends BasePage {
   // ─── Permission toggles ──────────────────────────────────────────────────
 
   /**
-   * Enable a permission by its label text. Works for both Radix switches and
-   * native checkboxes. Passes the label text to cy.contains() so partial
-   * matches work.
-   *
-   * @example enablePermission('Jobs') → enables the first toggle next to a label containing "Jobs"
-   * @example enablePermission('View', 'Jobs') → enables the "View" toggle within the Jobs section
+   * Enable a permission by its label text. Works for both Radix switches,
+   * native checkboxes, and standard teal buttons (View, Create, etc).
    */
   enablePermission(label, sectionLabel) {
     cy.get(M.dialog).within(() => {
+      const toggleSelector = '[role="switch"], [role="checkbox"], input[type="checkbox"], button:not([data-slot="dialog-close"])';
+
+      const handleToggle = ($el) => {
+        const isChecked =
+          $el.attr('aria-checked') === 'true' ||
+          $el.prop('checked') === true ||
+          $el.attr('data-state') === 'checked' ||
+          $el.hasClass('bg-teal-50');
+        if (!isChecked) cy.wrap($el).click();
+      };
+
       if (sectionLabel) {
         cy.contains(sectionLabel)
           .closest('section, div, tr, li')
-          .contains(label)
-          .closest('label, div, td, li')
-          .find('[role="switch"], [role="checkbox"], input[type="checkbox"]')
+          .contains(toggleSelector, label)
           .first()
-          .then(($el) => {
-            const isChecked =
-              $el.attr('aria-checked') === 'true' ||
-              $el.prop('checked') === true ||
-              $el.attr('data-state') === 'checked';
-            if (!isChecked) cy.wrap($el).click();
-          });
+          .then(handleToggle);
       } else {
-        cy.contains('label, [data-slot="label"]', label)
-          .closest('div, tr, li')
-          .find('[role="switch"], [role="checkbox"], input[type="checkbox"]')
+        cy.contains(toggleSelector, label)
           .first()
-          .then(($el) => {
-            const isChecked =
-              $el.attr('aria-checked') === 'true' ||
-              $el.prop('checked') === true ||
-              $el.attr('data-state') === 'checked';
-            if (!isChecked) cy.wrap($el).click();
-          });
+          .then(handleToggle);
       }
     });
     return this;
@@ -147,12 +133,16 @@ export class RolesPage extends BasePage {
   /** Enable ALL permission toggles inside the dialog. */
   enableAllPermissions() {
     cy.get(M.dialog).within(() => {
-      cy.get('[role="switch"], [role="checkbox"], input[type="checkbox"]').each(($el) => {
+      const toggleSelector = '[role="switch"], [role="checkbox"], input[type="checkbox"], .peer, button:not([data-slot="dialog-close"]):not(:contains("Cancel")):not(:contains("Create")):not(:contains("Save")):not(:contains("Update"))';
+      cy.get(toggleSelector).each(($el) => {
         const isChecked =
           $el.attr('aria-checked') === 'true' ||
           $el.prop('checked') === true ||
-          $el.attr('data-state') === 'checked';
-        if (!isChecked) cy.wrap($el).click();
+          $el.attr('data-state') === 'checked' ||
+          $el.hasClass('bg-teal-50');
+        if (!isChecked) {
+          cy.wrap($el).scrollIntoView().click({ force: true });
+        }
       });
     });
     return this;
@@ -161,12 +151,16 @@ export class RolesPage extends BasePage {
   /** Disable ALL permission toggles inside the dialog. */
   disableAllPermissions() {
     cy.get(M.dialog).within(() => {
-      cy.get('[role="switch"], [role="checkbox"], input[type="checkbox"]').each(($el) => {
+      const toggleSelector = '[role="switch"], [role="checkbox"], input[type="checkbox"], .peer, button:not([data-slot="dialog-close"]):not(:contains("Cancel")):not(:contains("Create")):not(:contains("Save")):not(:contains("Update"))';
+      cy.get(toggleSelector).each(($el) => {
         const isChecked =
           $el.attr('aria-checked') === 'true' ||
           $el.prop('checked') === true ||
-          $el.attr('data-state') === 'checked';
-        if (isChecked) cy.wrap($el).click();
+          $el.attr('data-state') === 'checked' ||
+          $el.hasClass('bg-teal-50');
+        if (isChecked) {
+          cy.wrap($el).scrollIntoView().click({ force: true });
+        }
       });
     });
     return this;
@@ -174,17 +168,19 @@ export class RolesPage extends BasePage {
 
   /** Assert at least one permission toggle exists in the dialog. */
   assertPermissionsVisible() {
+    const toggleSelector = '[role="switch"], [role="checkbox"], input[type="checkbox"], button.bg-teal-50, button.text-sm';
     cy.get(M.dialog)
-      .find('[role="switch"], [role="checkbox"], input[type="checkbox"]')
+      .find(toggleSelector)
       .should('have.length.greaterThan', 0);
     return this;
   }
 
   /** Count the number of permission toggles in the dialog. */
   countPermissions() {
+    const toggleSelector = '[role="switch"], [role="checkbox"], input[type="checkbox"], button.bg-teal-50, button.text-sm';
     return cy
       .get(M.dialog)
-      .find('[role="switch"], [role="checkbox"], input[type="checkbox"]')
+      .find(toggleSelector)
       .its('length');
   }
 
@@ -193,6 +189,7 @@ export class RolesPage extends BasePage {
   submitRole() {
     cy.get(M.dialog).within(() => {
       cy.contains('button', /create role|save|update/i)
+        .scrollIntoView()
         .should('be.visible')
         .click();
     });
@@ -226,6 +223,13 @@ export class RolesPage extends BasePage {
     if (enableAll) this.enableAllPermissions();
     this.submitRole();
     cy.get(M.dialog).should('not.exist');
+    
+    // Assert success toast
+    cy.contains('[data-sonner-toast]', /role created/i).should('be.visible');
+    
+    // Async safety
+    cy.wait(2000); 
+    cy.scrollTo('bottom', { ensureScrollable: false });
     return this;
   }
 
@@ -236,12 +240,14 @@ export class RolesPage extends BasePage {
   openEditRole(nameOrIndex = 0) {
     if (typeof nameOrIndex === 'string') {
       cy.contains(nameOrIndex)
-        .closest('li, article, [data-slot="card"], tr, div')
+        .parents('.flex.items-center.justify-between, li, article, tr, [data-slot="card"]')
+        .first()
         .find('button[title="Edit"]')
+        .scrollIntoView()
         .should('be.visible')
-        .click();
+        .click({ force: true });
     } else {
-      cy.get('button[title="Edit"]').eq(nameOrIndex).should('be.visible').click();
+      cy.get('button[title="Edit"]').eq(nameOrIndex).should('be.visible').click({ force: true });
     }
     cy.get(M.dialog, { timeout: 10000 }).should('be.visible');
     return this;
@@ -253,12 +259,14 @@ export class RolesPage extends BasePage {
   openDeleteRole(nameOrIndex = 0) {
     if (typeof nameOrIndex === 'string') {
       cy.contains(nameOrIndex)
-        .closest('li, article, [data-slot="card"], tr, div')
+        .parents('.flex.items-center.justify-between, li, article, tr, [data-slot="card"]')
+        .first()
         .find('button[title="Delete"]')
+        .scrollIntoView()
         .should('be.visible')
-        .click();
+        .click({ force: true });
     } else {
-      cy.get('button[title="Delete"]').eq(nameOrIndex).should('be.visible').click();
+      cy.get('button[title="Delete"]').eq(nameOrIndex).should('be.visible').click({ force: true });
     }
     cy.get(M.dialog, { timeout: 10000 }).should('be.visible');
     return this;
@@ -269,6 +277,10 @@ export class RolesPage extends BasePage {
       cy.contains('button', /delete|confirm/i).last().click();
     });
     cy.get(M.dialog).should('not.exist');
+    
+    // Async safety
+    cy.wait(2000); 
+    cy.scrollTo('bottom', { ensureScrollable: false });
     return this;
   }
 
@@ -284,6 +296,10 @@ export class RolesPage extends BasePage {
   deleteRole(name) {
     this.openDeleteRole(name);
     this.confirmDelete();
+    
+    // Assert success toast
+    cy.contains('[data-sonner-toast]', /role deleted/i).should('be.visible');
+    
     return this;
   }
 
@@ -292,7 +308,9 @@ export class RolesPage extends BasePage {
   /** Assert a specific role does NOT have a Delete button (system role). */
   assertRoleNotDeletable(name) {
     cy.contains(name)
-      .closest('li, article, [data-slot="card"], tr, div')
+      .scrollIntoView()
+      .parents('.flex.items-center.justify-between, li, article, tr, [data-slot="card"]')
+      .first()
       .find('button[title="Delete"]')
       .should('not.exist');
     return this;
@@ -304,7 +322,7 @@ export class RolesPage extends BasePage {
     cy.contains('button', 'Invite Member').click();
     cy.get(M.dialog).should('be.visible');
     cy.get('[data-slot="select-trigger"]').first().click();
-    cy.contains('[role="option"], [data-slot="select-item"]', roleName).should('be.visible');
+    cy.contains('[role="option"], [data-slot="select-item"]', roleName).scrollIntoView().should('be.visible');
     cy.get('[data-slot="dialog-close"]').click();
     cy.get(M.dialog).should('not.exist');
     return this;

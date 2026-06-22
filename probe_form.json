@@ -1,0 +1,554 @@
+{
+  "formHtml": "no form found",
+  "inputs": [
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "radix-_R_2t9iupfbb_",
+      "type": "button",
+      "text": "SD"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "headlessui-menu-button-_R_1taiupfbb_",
+      "type": "button",
+      "text": "S"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "submit",
+      "text": "Create Folder"
+    },
+    {
+      "tag": "INPUT",
+      "name": "",
+      "id": "folder-name",
+      "type": "text",
+      "placeholder": "e.g., Outreach Flow",
+      "text": ""
+    },
+    {
+      "tag": "INPUT",
+      "name": "",
+      "id": "folder-description",
+      "type": "text",
+      "placeholder": "Briefly describe this message flow...",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "All"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "WhatsApp"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "Email"
+    },
+    {
+      "tag": "INPUT",
+      "name": "",
+      "id": "",
+      "type": "text",
+      "placeholder": "Search templates...",
+      "text": ""
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "admoneo collum tenus\n\nStrenuus unde tempore vulgivagus arcesso considero comptus suus catena validus. ...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "aetas excepturi volo\n\nIste crustulum dolore cumque curtus adnuo minima clibanus. Antea desolo creber s...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "ager & Co.\n\nCurso autem sonitus umquam cupio cognomen. Adulescens spiritus considero repelle...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "aggero ' OR '1'='1\n\nEius viriliter valetudo sub tenetur eum vigor caries. Voluptas omnis comis vicis...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "animadverto ' OR '1'='1\n\nCeno vulpes ullam tumultus esse vereor suppono curriculum arcesso. Solium audio ...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "animus ' OR '1'='1\n\nConitor angelus cras terra ocer certus pel subnecto ceno. Ater color decumbo rer...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "antepono voluptatum vivo\n\nConcedo id quod umquam confero acies. Id delego super. Ter accusantium attonbitu...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "arx_AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n\nVel consequatur pauci suspendo. Tero temperantia labore animadverto sollicito ve...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "atque substantia somniculosus\n\nVulgo quisquam video summopere vigilo auctor titulus. Votum vitiosus in adhuc st...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "audio canto amissio\n\nAvarus nemo quos adipisci. Adduco itaque cupio clamo solum fuga autus. Deserunt ...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "auth\n\n*{{1}}* is your verification code. For your security, do not share this code.\n\nWA\n1btn\n1var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "cimentarius contra officiis\n\nDeinde cupio itaque. Cunctatio armarium amaritudo ipsa. Crustulum ago succedo de...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "confirmation_message\n\nHello {{1}} Thank you for showing interest in the interview opportunity. Office...\n\nWA\n1var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "corrigo alioqui votum\n\nCetera calcar ambitus civitas supplanto veritas aestus suffoco. Cervus crux arce...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "crux ' OR '1'='1\n\nCena aut error subiungo titulus adipiscor auditor cresco. Voluptate eveniet adeo...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "degenero ' OR '1'='1\n\nCorona apostolus ullam arguo defaeco tamisium ad aduro subseco. Acquiro audeo am...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_ai_interview_trigger_v1\n\nHi {{1}}, Great news! You are eligible for the {{2}} role at {{3}}. To proce...\n\nWA\n3var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_attendance_check_v1\n\nHi {{1}}, We noticed you have not confirmed your attendance for today's interv...\n\nWA\n2btn\n2var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_feedback_thanks_v1\n\nHi {{1}}, Thank you for sharing your feedback about the interview at {{2}}. ...\n\nWA\n2var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_future_updates\n\nHi {{1}}, Thank you for letting us know. We understand this role may not be th...\n\nWA\n2btn\n2var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_interview_confirmed_v1\n\nHi {{1}}, Your interview for the {{2}} role is confirmed. Date & Time: {{3}} O...\n\nWA\n7var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_interview_feedback_v1\n\nHi {{1}}, Thank you for attending the interview for the {{2}} role at {{3}}. ...\n\nWA\n3btn\n3var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_job_interest\n\nHi {{1}}, {{2}} is hiring for {{3}} roles in {{4}}. Salary: {{5}} Are you i...\n\nWA\n2btn\n5var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_not_selected_v1\n\nHi {{1}}, Thank you for your interest in the {{2}} role at {{3}} and for takin...\n\nWA\n3var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_reminder_1h_v1\n\nHi {{1}}, Your interview is in 1 hour at {{2}}. Office: {{3}} Contact: {{4}...\n\nWA\n2btn\n5var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_reminder_24h_v1\n\nHi {{1}}, This is a reminder that your interview for the {{2}} role is schedul...\n\nWA\n2btn\n7var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_reminder_3h_v1\n\nHi {{1}}, Your interview is today at {{2}}. Office: {{3}} Location: {{4}} C...\n\nWA\n2btn\n6var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_reschedule_offer_v1\n\nHi {{1}}, We understand that you were unable to attend the interview for the {...\n\nWA\n4btn\n2var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_resume_received_v1\n\nHi {{1}}, We received your resume for the {{2}} position at {{3}}, located in ...\n\nWA\n2btn\n5var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_screen_english_v1\n\nHi {{1}}, One last question before we proceed. This role requires basic Englis...\n\nWA\n2btn\n1var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_screen_not_eligible_v1\n\nHi {{1}}, Thank you for your interest in the {{2}} role at {{3}}. Unfortunatel...\n\nWA\n2btn\n3var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_screen_shift_v1\n\nHi {{1}}, The {{2}} role involves different shift timings including morning, a...\n\nWA\n2btn\n2var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_selected_v1\n\nHi {{1}}, We are pleased to inform you that you have been selected for the {{2...\n\nWA\n3var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_shortlisted_book_slot_v1\n\nHi {{1}}, Congratulations! You have cleared the initial screening for the {{2}}...\n\nWA\n3btn\n3var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "digitide_visit_verify_v1\n\nHi {{1}}, We hope your day is going well. Did you visit the {{2}} office tod...\n\nWA\n2btn\n3var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "employee_referral\n\nDear {{1}}, We’re excited to announce the \"Digitide Employee Referral League\" Ea...\n\nWA\n1btn\n1var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "eum vicissitudo amissio\n\nNumquam tenetur decimus. Aer tubineus suppono vespillo esse defessus demens reic...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "Folder Template 1782108484305\n\nBody\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "Folder Template 1782108507059\n\nBody\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "Folder Template 1782108529578\n\nBody\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "gethired_email\n\nHey {{1}} Congratulations for finishing the AI Interview for the role of Custome...\n\nWA\n1btn\n1var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "get_hired_interview_confriamtion_\n\nDear {{1}} Congratulations for finishing the AI Interview for the role of {{2}} ...\n\nWA\n2var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "hitechcity_walkindrive_confirmation_3\n\nDear {{1}}, Regarding your recent job application, you were unable to attend the...\n\nWA\n1var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "hitech_walk_in_confirmation\n\nDear {{1}}, You had applied for a job but missed the interview—here’s another op...\n\nWA\n1var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "hitech_walkin_drive_update\n\nDear {{1}}, You recently applied for a job but couldn’t attend the interview, h...\n\nWA\n1var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "nulla aveho demergo\n\nDolores adipiscor statua amoveo solvo undique id rem subvenio. Earum ultio debil...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "omnis tempus alii\n\nBibo consequuntur termes arca supellex sursum vaco creber. Summisse clarus tyran...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "orderhiring\n\nHello {{1}} दिनांक {{2}} 📞 अधिक माहितीसाठी संपर्क: 9137974505\n\nWA\n2var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "pecto_AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n\nTamisium antiquus voluptatibus aestas textor succedo abundans despecto tres. Ali...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "placement_drive\n\nHello, Greetings from Digitide Solutions. We have activated our Campus Connect P...\n\nWA\n1btn"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "ranigunj_confiramtion_message\n\nHello {{1}} Thank you for showing interest in the interview opportunity. Office...\n\nWA\n1var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "Search Template 1782108103727\n\nBody\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "Search Template 1782108123732\n\nBody\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "Search Template 1782108142852\n\nBody\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "Search Template 1782108356266\n\nBody\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "Search Template 1782108375257\n\nBody\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "Search Template 1782108394158\n\nBody\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "subiungo & Co.\n\nDapifer qui vel virtus derelinquo charisma. Apud comminor voluptatum culpa autem...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "summopere_AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n\nClamo testimonium volup depereo campana. Xiphias denique decet trucido pecus tot...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "tergiversatio id ducimus\n\nStella perferendis magni occaecati. Ultio nobis ullam despecto umbra verus. Stip...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "terreo & Co.\n\nAurum terreo demum adipiscor vos turpis. Caelestis porro tenetur occaecati alias...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "territo conturbo excepturi\n\nAccusamus creo concedo. Carcer tui tricesimus alioqui audax ara. Officiis tener ...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "thane\n\n*🔶 Digitide Thane Hiring 🔶* नमस्कार! _Digitide – ETPL, Kolshet Site, Thane_ य...\n\nWA"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "thane_confriamtion_test\n\nHi{{1}} Thank you for showing interest in the interview opportunity. Office Lo...\n\nWA\n1var"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "unus uberrime harum\n\nPorro torrens quidem trado caecus animadverto cruciamentum blandior. Tepesco ill...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "vereor tristis statim\n\nCharisma error incidunt. Debeo pax civis ullam maxime tres quia. Testimonium arm...\n\nEmail"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "id": "",
+      "type": "button",
+      "text": "walkin_thane\n\nनमस्कार, तुमची *Customer Care Executive* पदासाठी Walk-in मुलाखत *Digitide ETPL, ...\n\nWA"
+    }
+  ]
+}
